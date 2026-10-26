@@ -2,12 +2,6 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.profil-foto {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-}
-
 .aciklama {
   max-width: 600px;
 }

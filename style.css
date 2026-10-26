@@ -8,10 +8,14 @@ body {
   object-fit: cover;
 }
 
+.aciklama {
+  max-width: 600px;
+}
+
 h2 {
   color: #0d6efd;
 }
 
-.card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+td {
+  word-break: break-word;
 }

@@ -21,66 +21,50 @@
       <img src="ferhat.jpg" alt="Ferhat Yürük" class="profil-foto rounded-circle mb-3">
       <h1>Ferhat Yürük</h1>
       <p class="lead">Bilgisayar Mühendisi</p>
-      <button id="selamButon" class="btn btn-primary">Merhaba de</button>
-      <p id="selamMesaj" class="mt-3"></p>
+      <p class="aciklama mx-auto">
+        Necmettin Erbakan Üniversitesi'nde Bilgisayar Mühendisliği okuyorum.
+        Yapay zeka, robotik ve oyun geliştirme alanlarında kendimi geliştiriyorum.
+      </p>
     </div>
   </header>
 
   <section class="py-5 bg-light">
     <div class="container">
-      <h2 class="mb-3">Hakkımda</h2>
-      <p>
-        Necmettin Erbakan Üniversitesi'nde Bilgisayar Mühendisliği okuyorum.
-        2026 bahar döneminde Erasmus ile Portekiz'de Instituto Politécnico da Guarda'da okudum.
-        Üniversitemin Yapay Zeka Topluluğu'nda yönetim kurulu üyesiyim.
-        Yapay zeka, robotik ve oyun geliştirme alanlarında kendimi geliştirmek istiyorum.
-      </p>
-    </div>
-  </section>
+      <h2 class="mb-3">DNS Kayıtları</h2>
+      <p>Alan adı: <strong id="alanAdi"></strong></p>
+      <button id="sorgulaButon" class="btn btn-primary mb-3">Kayıtları Sorgula</button>
 
-  <section class="py-5">
-    <div class="container">
-      <h2 class="mb-4">Projeler</h2>
-      <div class="row">
-
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title">Masaüstü Pet Robot</h5>
-              <p class="card-text">7 kişilik ekibimle geliştirdiğimiz, masada duran kedi robot. ESP32 ve Python kullanıyoruz.</p>
-              <a href="https://github.com/KageRon7/pet-robot" class="btn btn-outline-primary btn-sm" target="_blank">GitHub</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title">MedGuard</h5>
-              <p class="card-text">Erasmus döneminde yaptığım web uygulaması. React, Tailwind CSS, C# .NET 8 Web API ve EF Core kullandım.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title">Yegane Natural</h5>
-              <p class="card-text">Bir müşterim için hazırladığım web sitesi.</p>
-              <a href="https://github.com/KageRon7/yegane-natural" class="btn btn-outline-primary btn-sm" target="_blank">GitHub</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="py-5 bg-light">
-    <div class="container">
-      <h2 class="mb-3">İletişim</h2>
-      <p>E-posta: <a href="mailto:yurukferhat595@gmail.com">yurukferhat595@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/KageRon7" target="_blank">github.com/KageRon7</a></p>
+      <table class="table table-bordered bg-white">
+        <thead class="table-dark">
+          <tr>
+            <th>Kayıt</th>
+            <th>Ne işe yarar?</th>
+            <th>Değer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>A</strong></td>
+            <td>Alan adını sitenin sunucusunun IP adresine bağlar.</td>
+            <td id="kayit-A">-</td>
+          </tr>
+          <tr>
+            <td><strong>CNAME</strong></td>
+            <td>www adresini başka bir alan adına yönlendirir (takma ad).</td>
+            <td id="kayit-CNAME">-</td>
+          </tr>
+          <tr>
+            <td><strong>NS</strong></td>
+            <td>Alan adının DNS kayıtlarını hangi sunucuların yönettiğini gösterir.</td>
+            <td id="kayit-NS">-</td>
+          </tr>
+          <tr>
+            <td><strong>MX</strong></td>
+            <td>Bu alan adına gelen e-postaların hangi sunucuya gideceğini belirler.</td>
+            <td id="kayit-MX">-</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 

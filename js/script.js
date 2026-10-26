@@ -6,41 +6,7 @@
 // Sayfa (DOM) tamamen yüklendiğinde çalışır
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ---------- 1. Daktilo (typing) efekti ---------- */
-  // Hero'daki yazı bu dizideki ifadeleri sırayla yazıp siler
-  const words = [
-    "Bilgisayar Mühendisi Adayı",
-    "Yapay Zeka Meraklısı",
-    "Robotik Geliştirici",
-    "Ekip Lideri",
-    "Oyun Tasarımcısı"
-  ];
-  const typedEl = document.getElementById("typed");
-  let wordIndex = 0;
-  let charIndex = 0;
-  let deleting = false;
-
-  function typeLoop() {
-    const current = words[wordIndex];
-    // Silme modundaysak bir harf azalt, değilse bir harf ekle
-    charIndex += deleting ? -1 : 1;
-    typedEl.textContent = current.substring(0, charIndex);
-
-    let delay = deleting ? 50 : 100;
-
-    if (!deleting && charIndex === current.length) {
-      delay = 1800;           // kelime bitince biraz bekle
-      deleting = true;
-    } else if (deleting && charIndex === 0) {
-      deleting = false;
-      wordIndex = (wordIndex + 1) % words.length; // sonraki kelimeye geç
-      delay = 400;
-    }
-    setTimeout(typeLoop, delay);
-  }
-  typeLoop();
-
-  /* ---------- 2. Karanlık / aydınlık tema ---------- */
+  /* ---------- 1. Karanlık / aydınlık tema ---------- */
   const root = document.documentElement;
   const themeBtn = document.getElementById("themeToggle");
   const themeIcon = themeBtn.querySelector("i");
@@ -61,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try { localStorage.setItem("theme", next); } catch (e) { /* yoksay */ }
   });
 
-  /* ---------- 3. Navbar: kaydırınca arka plan + yukarı çık butonu ---------- */
+  /* ---------- 2. Navbar: kaydırınca arka plan + yukarı çık butonu ---------- */
   const navbar = document.getElementById("mainNav");
   const backToTop = document.getElementById("backToTop");
 
@@ -85,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ---------- 4. Kaydırınca beliren öğeler (IntersectionObserver) ---------- */
+  /* ---------- 3. Kaydırınca beliren öğeler (IntersectionObserver) ---------- */
   const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -97,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
 
-  /* ---------- 5. Sayaç animasyonu ---------- */
+  /* ---------- 4. Sayaç animasyonu ---------- */
   function animateCounter(el) {
     const target = Number(el.dataset.target);
     const duration = 1200;
@@ -123,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".counter").forEach(el => counterObserver.observe(el));
 
-  /* ---------- 6. Proje filtreleme ---------- */
+  /* ---------- 5. Proje filtreleme ---------- */
   const filterButtons = document.querySelectorAll(".filter-btn");
   const projects = document.querySelectorAll(".project-item");
 
@@ -143,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ---------- 7. İletişim formu doğrulama ---------- */
+  /* ---------- 6. İletişim formu doğrulama ---------- */
   const form = document.getElementById("contactForm");
   // Bootstrap yüklenemezse (ör. internet yoksa) site yine çalışsın diye kontrol ediyoruz
   const toast = window.bootstrap ? bootstrap.Toast.getOrCreateInstance(document.getElementById("formToast")) : null;
@@ -171,6 +137,6 @@ document.addEventListener("DOMContentLoaded", () => {
     form.classList.remove("was-validated");
   });
 
-  /* ---------- 8. Footer yılı ---------- */
+  /* ---------- 7. Footer yılı ---------- */
   document.getElementById("year").textContent = new Date().getFullYear();
 });

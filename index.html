@@ -55,9 +55,7 @@
         <div class="col-lg-7 reveal">
           <p class="mono text-accent mb-2">Merhaba, ben</p>
           <h1 class="display-3 fw-bold mb-3">Ferhat Yürük</h1>
-          <h2 class="h3 fw-semibold mb-4">
-            <span id="typed" class="typed-text"></span><span class="cursor">|</span>
-          </h2>
+          <h2 class="h3 fw-semibold mb-4 hero-role">Bilgisayar Mühendisi</h2>
           <p class="lead text-body-secondary mb-4">
             Necmettin Erbakan Üniversitesi'nde Bilgisayar Mühendisliği öğrencisiyim.
             Yapay zeka ve robotiği, insanlara dokunan somut projelere dönüştürmeyi seviyorum.
@@ -73,7 +71,7 @@
         </div>
         <div class="col-lg-5 text-center reveal">
           <div class="avatar-wrap mx-auto">
-            <div class="avatar">FY</div>
+            <img class="avatar" src="assets/ferhat.jpg" alt="Ferhat Yürük" width="640" height="640">
             <span class="orbit orbit-1"><i class="bi bi-cpu"></i></span>
             <span class="orbit orbit-2"><i class="bi bi-robot"></i></span>
             <span class="orbit orbit-3"><i class="bi bi-controller"></i></span>
@@ -103,15 +101,13 @@
           </p>
           <p class="mb-0">
             Hedefim yapay zeka, robotik ve oyun geliştirme alanlarında kendimi geliştirmek.
-            Boş zamanlarımda League of Legends ve TFT oynuyorum.
           </p>
         </div>
         <div class="col-lg-5 reveal">
           <div class="row g-3 text-center">
-            <div class="col-6"><div class="stat-card"><span class="counter" data-target="4">0</span><small>Proje</small></div></div>
-            <div class="col-6"><div class="stat-card"><span class="counter" data-target="7">0</span><small>Kişilik Ekip</small></div></div>
-            <div class="col-6"><div class="stat-card"><span class="counter" data-target="2">0</span><small>Ülke</small></div></div>
-            <div class="col-6"><div class="stat-card"><span class="counter" data-target="2">0</span><small>Dil (TR / EN)</small></div></div>
+            <div class="col-4"><div class="stat-card"><span class="counter" data-target="5">0</span><small>Proje</small></div></div>
+            <div class="col-4"><div class="stat-card"><span class="counter" data-target="7">0</span><small>Kişilik Ekip</small></div></div>
+            <div class="col-4"><div class="stat-card"><span class="counter" data-target="2">0</span><small>Dil</small></div></div>
           </div>
         </div>
       </div>
@@ -127,28 +123,28 @@
           <div class="skill-card h-100">
             <i class="bi bi-code-slash"></i>
             <h3 class="h5">Programlama</h3>
-            <div class="tags"><span>Python</span><span>JavaScript</span><span>C / C++</span><span>SQL</span></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3 reveal">
-          <div class="skill-card h-100">
-            <i class="bi bi-cpu"></i>
-            <h3 class="h5">Yapay Zeka</h3>
-            <div class="tags"><span>LLM API</span><span>RAG</span><span>OpenCV</span><span>MediaPipe</span></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3 reveal">
-          <div class="skill-card h-100">
-            <i class="bi bi-robot"></i>
-            <h3 class="h5">Robotik</h3>
-            <div class="tags"><span>ESP32</span><span>Arduino</span><span>Servo</span><span>Tinkercad</span></div>
+            <div class="tags"><span>Python</span><span>C#</span><span>JavaScript</span><span>C++</span></div>
           </div>
         </div>
         <div class="col-md-6 col-lg-3 reveal">
           <div class="skill-card h-100">
             <i class="bi bi-window"></i>
-            <h3 class="h5">Web</h3>
-            <div class="tags"><span>HTML</span><span>CSS</span><span>Bootstrap</span><span>Git</span></div>
+            <h3 class="h5">Frontend</h3>
+            <div class="tags"><span>HTML</span><span>CSS</span><span>Bootstrap</span><span>React</span><span>Vite</span><span>Tailwind CSS</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="skill-card h-100">
+            <i class="bi bi-hdd-stack"></i>
+            <h3 class="h5">Backend</h3>
+            <div class="tags"><span>.NET 8 Web API</span><span>EF Core</span><span>REST API</span><span>Git</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="skill-card h-100">
+            <i class="bi bi-robot"></i>
+            <h3 class="h5">Yapay Zeka &amp; Robotik</h3>
+            <div class="tags"><span>LLM API</span><span>ESP32</span><span>Arduino</span><span>Tinkercad</span></div>
           </div>
         </div>
       </div>
@@ -166,6 +162,7 @@
         <button class="btn filter-btn" data-filter="ai">Yapay Zeka</button>
         <button class="btn filter-btn" data-filter="robotics">Robotik</button>
         <button class="btn filter-btn" data-filter="web">Web</button>
+        <button class="btn filter-btn" data-filter="game">Oyun</button>
       </div>
 
       <div class="row g-4" id="projectGrid">
@@ -174,23 +171,23 @@
             <div class="project-thumb thumb-1"><i class="bi bi-robot"></i></div>
             <div class="card-body">
               <h3 class="h5 card-title">Masaüstü Pet Robot</h3>
-              <p class="card-text">Bilgisayar başındaki insana arkadaşlık eden kedi robot. ESP32 "dumb terminal", beyin Python'da: LLM persona, RAG hafıza, webcam ile yüz ifadesi tanıma.</p>
-              <div class="tags small-tags"><span>Python</span><span>ESP32</span><span>OpenCV</span><span>asyncio</span></div>
+              <p class="card-text">Bilgisayar başındaki insana arkadaşlık eden kedi robot. ESP32 "dumb terminal" olarak çalışıyor; beyni bilgisayarda Python'da: LLM ile kişilik ve webcam ile yüz ifadesine tepki.</p>
+              <div class="tags small-tags"><span>Python</span><span>ESP32</span><span>LLM API</span><span>asyncio</span></div>
             </div>
             <div class="card-footer bg-transparent border-0 pb-3">
-              <a href="https://github.com/KageRon7/pet-robot" target="_blank" rel="noopener" class="link-accent"><i class="bi bi-github me-1"></i>Kaynak kod</a>
+              <a href="https://github.com/KageRon7/pet-robot" target="_blank" rel="noopener" class="link-accent"><i class="bi bi-github me-1"></i>GitHub'da incele</a>
               <span class="badge rounded-pill badge-soft ms-2">Ekip lideri</span>
             </div>
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-4 project-item" data-category="ai">
+        <div class="col-md-6 col-lg-4 project-item" data-category="web">
           <div class="card project-card h-100">
             <div class="project-thumb thumb-2"><i class="bi bi-shield-plus"></i></div>
             <div class="card-body">
               <h3 class="h5 card-title">MedGuard</h3>
-              <p class="card-text">Erasmus döneminde tek başıma geliştirdiğim, veritabanı destekli sağlık odaklı uygulama.</p>
-              <div class="tags small-tags"><span>Veritabanı</span><span>Backend</span></div>
+              <p class="card-text">Erasmus döneminde tek başıma geliştirdiğim full-stack web uygulaması. React + Vite ile sayfa yenilenmeden çalışan bir arayüz, C# .NET 8 Web API ile REST uç noktaları; EF Core ve In-Memory veritabanı sayesinde hiçbir SQL kurulumu gerektirmeden çalışıyor.</p>
+              <div class="tags small-tags"><span>React</span><span>Vite</span><span>Tailwind CSS</span><span>.NET 8</span><span>EF Core</span></div>
             </div>
             <div class="card-footer bg-transparent border-0 pb-3">
               <a href="https://github.com/KageRon7" target="_blank" rel="noopener" class="link-accent"><i class="bi bi-github me-1"></i>GitHub</a>
@@ -208,7 +205,7 @@
               <div class="tags small-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
             </div>
             <div class="card-footer bg-transparent border-0 pb-3">
-              <a href="https://github.com/KageRon7/yegane-natural" target="_blank" rel="noopener" class="link-accent"><i class="bi bi-github me-1"></i>Kaynak kod</a>
+              <a href="https://github.com/KageRon7/yegane-natural" target="_blank" rel="noopener" class="link-accent"><i class="bi bi-github me-1"></i>GitHub'da incele</a>
               <span class="badge rounded-pill badge-soft ms-2">Müşteri işi</span>
             </div>
           </div>
@@ -233,17 +230,18 @@
           <div class="card project-card h-100">
             <div class="project-thumb thumb-5"><i class="bi bi-person-badge"></i></div>
             <div class="card-body">
-              <h3 class="h5 card-title">Bu Web Sitesi</h3>
-              <p class="card-text">HTML, CSS, Bootstrap 5 ve saf JavaScript ile yaptığım; karanlık/aydınlık tema, filtre ve animasyonlar içeren kişisel sitem.</p>
-              <div class="tags small-tags"><span>Bootstrap 5</span><span>Vanilla JS</span><span>Vercel</span></div>
+              <h3 class="h5 card-title">Kişisel Tanıtım Sitesi</h3>
+              <p class="card-text">HTML, CSS, Bootstrap 5 ve JavaScript ile hazırladığım; karanlık/aydınlık tema, proje filtresi ve animasyonlar içeren kişisel tanıtım sitem.</p>
+              <div class="tags small-tags"><span>Bootstrap 5</span><span>JavaScript</span><span>Vercel</span></div>
             </div>
             <div class="card-footer bg-transparent border-0 pb-3">
-              <span class="badge rounded-pill badge-soft">Ders projesi</span>
+              <a href="https://github.com/KageRon7/Kisisel_Site" target="_blank" rel="noopener" class="link-accent"><i class="bi bi-github me-1"></i>GitHub'da incele</a>
+              <span class="badge rounded-pill badge-soft ms-2">Ders projesi</span>
             </div>
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-4 project-item" data-category="ai">
+        <div class="col-md-6 col-lg-4 project-item" data-category="game">
           <div class="card project-card h-100">
             <div class="project-thumb thumb-6"><i class="bi bi-controller"></i></div>
             <div class="card-body">

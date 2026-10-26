@@ -1,4 +1,4 @@
-# Ferhat Yürük — Kişisel Web Sitesi
+# Ferhat Yürük — Kişisel Tanıtım Sitesi
 
 HTML, CSS, Bootstrap 5 ve JavaScript ile hazırlanmış tek sayfalık kişisel portfolyo sitesi.
 
@@ -9,7 +9,7 @@ ferhat-yuruk-site/
 ├── index.html        → Sayfanın iskeleti (HTML + Bootstrap sınıfları)
 ├── css/style.css     → Özel tasarım, renk teması, animasyonlar
 ├── js/script.js      → Etkileşimler (tema, filtre, form, animasyonlar)
-├── assets/favicon.svg→ Sekme ikonu
+├── assets/          → Profil fotoğrafı ve sekme ikonu
 └── README.md
 ```
 
@@ -21,7 +21,7 @@ ferhat-yuruk-site/
 | CSS3 | CSS değişkenleri ile tema, flexbox, gradient, `@keyframes` animasyonlar, media query |
 | Bootstrap 5.3 (CDN) | Grid sistemi, navbar, kartlar, form doğrulama, Toast, ScrollSpy, Collapse |
 | Bootstrap Icons | İkonlar |
-| JavaScript (ES6) | Daktilo efekti, tema değiştirme + localStorage, IntersectionObserver, sayaç, filtre, form doğrulama |
+| JavaScript (ES6) | Tema değiştirme + localStorage, IntersectionObserver, sayaç, filtre, form doğrulama |
 | Google Fonts | Inter ve JetBrains Mono yazı tipleri |
 | Vercel | Yayınlama (hosting) ve alan adı |
 

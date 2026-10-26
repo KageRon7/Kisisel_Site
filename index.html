@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="tr" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ferhat Yürük — Bilgisayar Mühendisliği öğrencisi. Yapay zeka, robotik ve oyun geliştirme üzerine projeler.">
+  <meta name="author" content="Ferhat Yürük">
+  <title>Ferhat Yürük | Kişisel Web Sitesi</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS + Bootstrap Icons (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Kendi stil dosyamız -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav id="mainNav" class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#hero"><span class="brand-accent">&lt;</span>Ferhat<span class="brand-accent">/&gt;</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Menüyü aç">
+        <i class="bi bi-list fs-2"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#about">Hakkımda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Yetenekler</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projeler</a></li>
+          <li class="nav-item"><a class="nav-link" href="#journey">Yolculuk</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">İletişim</a></li>
+          <li class="nav-item">
+            <button id="themeToggle" class="btn btn-sm theme-btn ms-lg-2" aria-label="Temayı değiştir">
+              <i class="bi bi-sun-fill"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7 reveal">
+          <p class="mono text-accent mb-2">Merhaba, ben</p>
+          <h1 class="display-3 fw-bold mb-3">Ferhat Yürük</h1>
+          <h2 class="h3 fw-semibold mb-4">
+            <span id="typed" class="typed-text"></span><span class="cursor">|</span>
+          </h2>
+          <p class="lead text-body-secondary mb-4">
+            Necmettin Erbakan Üniversitesi'nde Bilgisayar Mühendisliği öğrencisiyim.
+            Yapay zeka ve robotiği, insanlara dokunan somut projelere dönüştürmeyi seviyorum.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#projects" class="btn btn-accent btn-lg"><i class="bi bi-rocket-takeoff me-2"></i>Projelerime Bak</a>
+            <a href="#contact" class="btn btn-outline-accent btn-lg"><i class="bi bi-envelope me-2"></i>İletişime Geç</a>
+          </div>
+          <div class="social mt-4">
+            <a href="https://github.com/KageRon7" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+            <a href="mailto:yurukferhat595@gmail.com" aria-label="E-posta"><i class="bi bi-envelope-fill"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-5 text-center reveal">
+          <div class="avatar-wrap mx-auto">
+            <div class="avatar">FY</div>
+            <span class="orbit orbit-1"><i class="bi bi-cpu"></i></span>
+            <span class="orbit orbit-2"><i class="bi bi-robot"></i></span>
+            <span class="orbit orbit-3"><i class="bi bi-controller"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-down" aria-label="Aşağı kaydır"><i class="bi bi-chevron-double-down"></i></a>
+  </header>
+
+  <!-- ===================== HAKKIMDA ===================== -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title reveal"><span class="mono text-accent">01.</span> Hakkımda</h2>
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-7 reveal">
+          <p>
+            Alanya'da yaşıyorum ve Konya'da <strong>Necmettin Erbakan Üniversitesi</strong>'nde
+            Bilgisayar Mühendisliği okuyorum (mezuniyet: 2028). Bir konu ilgimi çektiğinde
+            onu en ince ayrıntısına kadar öğrenmeden bırakmayan biriyim.
+          </p>
+          <p>
+            2026 bahar döneminde <strong>Erasmus</strong> öğrencisi olarak Portekiz'de
+            <strong>Instituto Politécnico da Guarda</strong>'da okudum. Şu an üniversitemin
+            <strong>Yapay Zeka Topluluğu</strong>'nda yönetim kurulu üyesiyim ve 7 kişilik bir
+            ekiple masaüstü pet robot geliştiriyoruz.
+          </p>
+          <p class="mb-0">
+            Hedefim yapay zeka, robotik ve oyun geliştirme alanlarında kendimi geliştirmek.
+            Boş zamanlarımda League of Legends ve TFT oynuyorum.
+          </p>
+        </div>
+        <div class="col-lg-5 reveal">
+          <div class="row g-3 text-center">
+            <div class="col-6"><div class="stat-card"><span class="counter" data-target="4">0</span><small>Proje</small></div></div>
+            <div class="col-6"><div class="stat-card"><span class="counter" data-target="7">0</span><small>Kişilik Ekip</small></div></div>
+            <div class="col-6"><div class="stat-card"><span class="counter" data-target="2">0</span><small>Ülke</small></div></div>
+            <div class="col-6"><div class="stat-card"><span class="counter" data-target="2">0</span><small>Dil (TR / EN)</small></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== YETENEKLER ===================== -->
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title reveal"><span class="mono text-accent">02.</span> Yetenekler</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="skill-card h-100">
+            <i class="bi bi-code-slash"></i>
+            <h3 class="h5">Programlama</h3>
+            <div class="tags"><span>Python</span><span>JavaScript</span><span>C / C++</span><span>SQL</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="skill-card h-100">
+            <i class="bi bi-cpu"></i>
+            <h3 class="h5">Yapay Zeka</h3>
+            <div class="tags"><span>LLM API</span><span>RAG</span><span>OpenCV</span><span>MediaPipe</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="skill-card h-100">
+            <i class="bi bi-robot"></i>
+            <h3 class="h5">Robotik</h3>
+            <div class="tags"><span>ESP32</span><span>Arduino</span><span>Servo</span><span>Tinkercad</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="skill-card h-100">
+            <i class="bi bi-window"></i>
+            <h3 class="h5">Web</h3>
+            <div class="tags"><span>HTML</span><span>CSS</span><span>Bootstrap</span><span>Git</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJELER ===================== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title reveal"><span class="mono text-accent">03.</span> Projeler</h2>
+
+      <!-- Filtre butonları (JavaScript ile çalışır) -->
+      <div class="filters text-center mb-4 reveal">
+        <button class="btn filter-btn active" data-filter="all">Tümü</button>
+        <button class="btn filter-btn" data-filter="ai">Yapay Zeka</button>
+        <button class="btn filter-btn" data-filter="robotics">Robotik</button>
+        <button class="btn filter-btn" data-filter="web">Web</button>
+      </div>
+
+      <div class="row g-4" id="projectGrid">
+        <div class="col-md-6 col-lg-4 project-item" data-category="ai robotics">
+          <div class="card project-card h-100">
+            <div class="project-thumb thumb-1"><i class="bi bi-robot"></i></div>
+            <div class="card-body">
+              <h3 class="h5 card-title">Masaüstü Pet Robot</h3>
+              <p class="card-text">Bilgisayar başındaki insana arkadaşlık eden kedi robot. ESP32 "dumb terminal", beyin Python'da: LLM persona, RAG hafıza, webcam ile yüz ifadesi tanıma.</p>
+              <div class="tags small-tags"><span>Python</span><span>ESP32</span><span>OpenCV</span><span>asyncio</span></div>
+            </div>
+            <div class="card-footer bg-transparent border-0 pb-3">
+              <a href="https://github.com/KageRon7/pet-robot" target="_blank" rel="noopener" class="link-accent"><i class="bi bi-github me-1"></i>Kaynak kod</a>
+              <span class="badge rounded-pill badge-soft ms-2">Ekip lideri</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 project-item" data-category="ai">
+          <div class="card project-card h-100">
+            <div class="project-thumb thumb-2"><i class="bi bi-shield-plus"></i></div>
+            <div class="card-body">
+              <h3 class="h5 card-title">MedGuard</h3>
+              <p class="card-text">Erasmus döneminde tek başıma geliştirdiğim, veritabanı destekli sağlık odaklı uygulama.</p>
+              <div class="tags small-tags"><span>Veritabanı</span><span>Backend</span></div>
+            </div>
+            <div class="card-footer bg-transparent border-0 pb-3">
+              <a href="https://github.com/KageRon7" target="_blank" rel="noopener" class="link-accent"><i class="bi bi-github me-1"></i>GitHub</a>
+              <span class="badge rounded-pill badge-soft ms-2">Bireysel</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 project-item" data-category="web">
+          <div class="card project-card h-100">
+            <div class="project-thumb thumb-3"><i class="bi bi-flower1"></i></div>
+            <div class="card-body">
+              <h3 class="h5 card-title">Yegane Natural</h3>
+              <p class="card-text">Gerçek bir müşteri için hazırladığım doğal ürün markasının web vitrini.</p>
+              <div class="tags small-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+            </div>
+            <div class="card-footer bg-transparent border-0 pb-3">
+              <a href="https://github.com/KageRon7/yegane-natural" target="_blank" rel="noopener" class="link-accent"><i class="bi bi-github me-1"></i>Kaynak kod</a>
+              <span class="badge rounded-pill badge-soft ms-2">Müşteri işi</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 project-item" data-category="robotics">
+          <div class="card project-card h-100">
+            <div class="project-thumb thumb-4"><i class="bi bi-motherboard"></i></div>
+            <div class="card-body">
+              <h3 class="h5 card-title">Robotik Devreler</h3>
+              <p class="card-text">IPG Guarda'daki robotik dersi kapsamında Tinkercad üzerinde tasarlayıp simüle ettiğim Arduino devreleri.</p>
+              <div class="tags small-tags"><span>Arduino</span><span>Tinkercad</span><span>C++</span></div>
+            </div>
+            <div class="card-footer bg-transparent border-0 pb-3">
+              <a href="https://github.com/KageRon7" target="_blank" rel="noopener" class="link-accent"><i class="bi bi-github me-1"></i>GitHub</a>
+              <span class="badge rounded-pill badge-soft ms-2">Erasmus</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 project-item" data-category="web">
+          <div class="card project-card h-100">
+            <div class="project-thumb thumb-5"><i class="bi bi-person-badge"></i></div>
+            <div class="card-body">
+              <h3 class="h5 card-title">Bu Web Sitesi</h3>
+              <p class="card-text">HTML, CSS, Bootstrap 5 ve saf JavaScript ile yaptığım; karanlık/aydınlık tema, filtre ve animasyonlar içeren kişisel sitem.</p>
+              <div class="tags small-tags"><span>Bootstrap 5</span><span>Vanilla JS</span><span>Vercel</span></div>
+            </div>
+            <div class="card-footer bg-transparent border-0 pb-3">
+              <span class="badge rounded-pill badge-soft">Ders projesi</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 project-item" data-category="ai">
+          <div class="card project-card h-100">
+            <div class="project-thumb thumb-6"><i class="bi bi-controller"></i></div>
+            <div class="card-body">
+              <h3 class="h5 card-title">Oyun Projesi</h3>
+              <p class="card-text">Bir arkadaşımla konsept çizim aşamasında olan oyunumuz. Çocukluğumdan beri kendi oyun kurallarımı tasarlıyorum.</p>
+              <div class="tags small-tags"><span>Oyun Tasarımı</span><span>Konsept</span></div>
+            </div>
+            <div class="card-footer bg-transparent border-0 pb-3">
+              <span class="badge rounded-pill badge-soft">Yakında</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== YOLCULUK (Timeline) ===================== -->
+  <section id="journey" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title reveal"><span class="mono text-accent">04.</span> Yolculuğum</h2>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <span class="timeline-date">2026 – Şimdi</span>
+          <h3 class="h5">Erasmus+ Staj Hakkı</h3>
+          <p>Avrupa'da yapay zeka, oyun veya robotik alanında staj için şirketlere başvuruyorum.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <span class="timeline-date">2026 – Şimdi</span>
+          <h3 class="h5">Yapay Zeka Topluluğu — Yönetim Kurulu</h3>
+          <p>Seminer organize ettim ve Erasmus+ deneyimim üzerine konuşma yaptım. Pet robot ekibine liderlik ediyorum.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <span class="timeline-date">Mart – Temmuz 2026</span>
+          <h3 class="h5">Erasmus — Instituto Politécnico da Guarda</h3>
+          <p>Portekiz'de bir dönem eğitim; robotik dersi ve MedGuard projesi.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <span class="timeline-date">2024 – 2028</span>
+          <h3 class="h5">Necmettin Erbakan Üniversitesi</h3>
+          <p>Bilgisayar Mühendisliği lisans programı.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== İLETİŞİM ===================== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title reveal"><span class="mono text-accent">05.</span> İletişim</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8 reveal">
+          <p class="text-center text-body-secondary mb-4">Bir proje fikrin, staj teklifin ya da sadece merhaba demek için yaz!</p>
+          <form id="contactForm" class="contact-form" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="name" class="form-label">Adın</label>
+                <input type="text" class="form-control" id="name" required minlength="2">
+                <div class="invalid-feedback">Lütfen adını yaz (en az 2 karakter).</div>
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label">E-posta</label>
+                <input type="email" class="form-control" id="email" required>
+                <div class="invalid-feedback">Geçerli bir e-posta adresi gir.</div>
+              </div>
+              <div class="col-12">
+                <label for="message" class="form-label">Mesajın</label>
+                <textarea class="form-control" id="message" rows="5" required minlength="10"></textarea>
+                <div class="invalid-feedback">Mesaj en az 10 karakter olmalı.</div>
+              </div>
+              <div class="col-12 text-center">
+                <button type="submit" class="btn btn-accent btn-lg px-5"><i class="bi bi-send me-2"></i>Gönder</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer py-4 text-center">
+    <div class="container">
+      <div class="social mb-2">
+        <a href="https://github.com/KageRon7" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="mailto:yurukferhat595@gmail.com" aria-label="E-posta"><i class="bi bi-envelope-fill"></i></a>
+      </div>
+      <small class="text-body-secondary">© <span id="year"></span> Ferhat Yürük · HTML, CSS, Bootstrap &amp; JavaScript ile yapıldı</small>
+    </div>
+  </footer>
+
+  <!-- Yukarı çık butonu -->
+  <button id="backToTop" class="back-to-top" aria-label="Yukarı çık"><i class="bi bi-arrow-up"></i></button>
+
+  <!-- Toast (form gönderilince bildirim) -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="formToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <i class="bi bi-check-circle-fill text-success me-2"></i>
+        <strong class="me-auto">Teşekkürler!</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Kapat"></button>
+      </div>
+      <div class="toast-body">E-posta uygulaman açılıyor, mesajını oradan gönderebilirsin.</div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (Navbar, Toast, ScrollSpy için) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Kendi JavaScript dosyamız -->
+  <script src="js/script.js"></script>
+</body>
+</html>

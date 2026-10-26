@@ -1,0 +1,381 @@
+/* =========================================================
+   Ferhat Yürük — Kişisel Web Sitesi
+   style.css : Bootstrap'in üstüne eklenen özel stiller
+   ========================================================= */
+
+/* ---------- 1. Renk değişkenleri (tema) ---------- */
+:root {
+  --accent: #22d3ee;          /* camgöbeği vurgu rengi */
+  --accent-2: #a78bfa;        /* mor ikincil renk */
+  --bg: #0b1120;
+  --bg-alt: #111a2e;
+  --card: #15203a;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --border: rgba(148, 163, 184, 0.15);
+  --nav-bg: rgba(11, 17, 32, 0.85);
+}
+
+/* Aydınlık tema: JavaScript <html> etiketine data-bs-theme="light" ekler */
+[data-bs-theme="light"] {
+  --accent: #0891b2;
+  --accent-2: #7c3aed;
+  --bg: #f8fafc;
+  --bg-alt: #eef2f7;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: rgba(15, 23, 42, 0.1);
+  --nav-bg: rgba(248, 250, 252, 0.9);
+}
+
+/* ---------- 2. Genel ---------- */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+.mono { font-family: "JetBrains Mono", monospace; }
+.text-accent { color: var(--accent) !important; }
+.text-body-secondary { color: var(--muted) !important; }
+
+.section { padding: 100px 0; }
+.section-alt { background: var(--bg-alt); }
+
+.section-title {
+  font-weight: 800;
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  max-width: 300px;
+}
+
+/* ---------- 3. Butonlar ---------- */
+.btn-accent {
+  background: var(--accent);
+  color: #0b1120;
+  font-weight: 600;
+  border: none;
+}
+.btn-accent:hover { background: var(--accent-2); color: #fff; transform: translateY(-2px); }
+
+.btn-outline-accent {
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+.btn-outline-accent:hover { background: var(--accent); color: #0b1120; }
+
+.btn { transition: all 0.25s ease; }
+
+/* ---------- 4. Navbar ---------- */
+.navbar {
+  background: transparent;
+  transition: background 0.3s, box-shadow 0.3s, padding 0.3s;
+  padding: 18px 0;
+}
+.navbar.scrolled {
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+}
+.navbar-brand, .navbar-toggler { color: var(--text) !important; }
+.brand-accent { color: var(--accent); }
+.navbar-toggler { border: none; }
+.navbar-toggler:focus { box-shadow: none; }
+
+.nav-link {
+  color: var(--muted) !important;
+  font-weight: 500;
+  position: relative;
+}
+.nav-link:hover, .nav-link.active { color: var(--accent) !important; }
+
+.theme-btn {
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+}
+.theme-btn:hover { color: var(--accent); border-color: var(--accent); }
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-top: 10px;
+  }
+}
+
+/* ---------- 5. Hero ---------- */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  padding-top: 80px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(34, 211, 238, 0.12), transparent 40%),
+    radial-gradient(circle at 85% 70%, rgba(167, 139, 250, 0.12), transparent 40%);
+}
+
+.typed-text { color: var(--accent); }
+.cursor { color: var(--accent); animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+.social a {
+  color: var(--muted);
+  font-size: 1.5rem;
+  margin-right: 18px;
+  transition: color 0.2s, transform 0.2s;
+  display: inline-block;
+}
+.social a:hover { color: var(--accent); transform: translateY(-3px); }
+.footer .social a { margin: 0 9px; }
+
+/* Avatar ve dönen ikonlar */
+.avatar-wrap {
+  position: relative;
+  width: 280px;
+  height: 280px;
+}
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 60px rgba(34, 211, 238, 0.35);
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float { 50% { transform: translateY(-12px); } }
+
+.orbit {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 1.4rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+.orbit-1 { top: 0; right: -10px; animation: float 3s ease-in-out infinite; }
+.orbit-2 { bottom: 20px; left: -20px; animation: float 3.5s ease-in-out infinite 0.5s; }
+.orbit-3 { bottom: -10px; right: 30px; animation: float 4.5s ease-in-out infinite 1s; }
+
+.scroll-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--muted);
+  font-size: 1.6rem;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce { 50% { transform: translate(-50%, 10px); } }
+
+/* ---------- 6. Hakkımda: sayaç kartları ---------- */
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px 12px;
+  transition: transform 0.25s, border-color 0.25s;
+}
+.stat-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+.stat-card .counter {
+  display: block;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+.stat-card small { color: var(--muted); }
+
+/* ---------- 7. Yetenek kartları ---------- */
+.skill-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.skill-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(34, 211, 238, 0.12); }
+.skill-card > i { font-size: 2.2rem; color: var(--accent); display: block; margin-bottom: 12px; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.tags span {
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(34, 211, 238, 0.1);
+  color: var(--accent);
+  font-family: "JetBrains Mono", monospace;
+}
+.small-tags span { font-size: 0.72rem; }
+
+/* ---------- 8. Projeler ---------- */
+.filter-btn {
+  border: 1px solid var(--border);
+  color: var(--muted);
+  border-radius: 999px;
+  margin: 4px;
+  padding: 6px 18px;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--accent);
+  color: #0b1120;
+  border-color: var(--accent);
+}
+
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  color: var(--text);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-card:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25); }
+.project-card .card-text { color: var(--muted); font-size: 0.95rem; }
+
+.project-thumb {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  color: #fff;
+}
+.thumb-1 { background: linear-gradient(135deg, #06b6d4, #6366f1); }
+.thumb-2 { background: linear-gradient(135deg, #10b981, #0ea5e9); }
+.thumb-3 { background: linear-gradient(135deg, #84cc16, #22c55e); }
+.thumb-4 { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+.thumb-5 { background: linear-gradient(135deg, #8b5cf6, #ec4899); }
+.thumb-6 { background: linear-gradient(135deg, #f43f5e, #a855f7); }
+
+.project-item { transition: opacity 0.35s, transform 0.35s; }
+.project-item.hide { display: none; }
+
+.link-accent { color: var(--accent); text-decoration: none; font-weight: 500; }
+.link-accent:hover { text-decoration: underline; }
+
+.badge-soft {
+  background: rgba(167, 139, 250, 0.15);
+  color: var(--accent-2);
+  font-weight: 500;
+}
+
+/* ---------- 9. Zaman çizelgesi ---------- */
+.timeline {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+  padding-left: 32px;
+  border-left: 2px solid var(--border);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -42px;
+  top: 4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--bg-alt);
+  border: 3px solid var(--accent);
+}
+.timeline-date {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+.timeline-item h3 { margin: 6px 0; }
+.timeline-item p { color: var(--muted); margin: 0; }
+
+/* ---------- 10. İletişim formu ---------- */
+.contact-form {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+}
+.contact-form .form-control {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.contact-form .form-control:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.2rem rgba(34, 211, 238, 0.2);
+}
+
+/* ---------- 11. Footer ve yukarı çık ---------- */
+.footer { border-top: 1px solid var(--border); }
+
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent);
+  color: #0b1120;
+  font-size: 1.2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+.back-to-top.show { opacity: 1; visibility: visible; }
+.back-to-top:hover { transform: translateY(-4px); }
+
+/* ---------- 12. Kaydırınca beliren animasyon ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* Hareket hassasiyeti olan kullanıcılar için animasyonları kapat */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ---------- 13. Mobil uyum ---------- */
+@media (max-width: 576px) {
+  .section { padding: 70px 0; }
+  .avatar-wrap { width: 210px; height: 210px; }
+  .avatar { font-size: 3.8rem; }
+  .contact-form { padding: 20px; }
+}

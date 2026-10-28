@@ -2,16 +2,13 @@
 const alanAdi = window.location.hostname.replace("www.", "");
 document.getElementById("alanAdi").textContent = alanAdi || "Site bir alan adı üzerinden açılmadı";
 
-// NS kayıtları alt alan adında değil, üst alan adında tutulur (abrdns.com)
+// NS kayıtları alt alan adında değil, üst alan adında tutulur (ör. vercel.app)
 const ustAlanAdi = alanAdi.split(".").slice(-2).join(".");
 
 // Kayıt türleri, DNS'teki tür numaraları ve sorgulanacak adresler
-// CNAME için önce alan adının kendisine, yoksa www adresine bakılır
 const sorgular = [
   { tur: "A",     no: 1,  isimler: [alanAdi] },
-  { tur: "CNAME", no: 5,  isimler: [alanAdi, "www." + alanAdi] },
-  { tur: "NS",    no: 2,  isimler: [ustAlanAdi] },
-  { tur: "TXT",   no: 16, isimler: [alanAdi] }
+  { tur: "NS",    no: 2,  isimler: [ustAlanAdi] }
 ];
 
 // Google'ın herkese açık DNS servisinden (DNS over HTTPS) bir kaydı sorgular

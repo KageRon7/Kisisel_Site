@@ -1,11 +1,17 @@
+// Site hangi alan adından açıldıysa onu al (ör. ferhttyurukk.abrdns.com)
 const alanAdi = window.location.hostname.replace("www.", "");
 document.getElementById("alanAdi").textContent = alanAdi || "Site bir alan adı üzerinden açılmadı";
 
+// Üst alan adı: ferhttyurukk.abrdns.com -> abrdns.com
+// NS kayıtları alt alan adında değil, üst alan adında tutulur.
+const ustAlanAdi = alanAdi.split(".").slice(-2).join(".");
+
+// Her kayıt türü: hangi adres sorgulanacak, DNS'teki tür numarası, kayıt yoksa ne yazılacak
 const sorgular = [
-  { tur: "A", isim: alanAdi },
-  { tur: "CNAME", isim: "www." + alanAdi },
-  { tur: "NS", isim: alanAdi },
-  { tur: "MX", isim: alanAdi }
+  { tur: "A",     no: 1,  isim: alanAdi,    yoksa: "A kaydı yok" },
+  { tur: "CNAME", no: 5,  isim: alanAdi,    yoksa: "CNAME yok (alan adı doğrudan IP'ye bağlı)" },
+  { tur: "NS",    no: 2,  isim: ustAlanAdi, yoksa: "NS kaydı bulunamadı" },
+  { tur: "MX",    no: 15, isim: alanAdi,    yoksa: "MX kaydı tanımlı değil: bu alan adı e-posta almıyor" }
 ];
 
 async function dnsSorgula() {
@@ -14,16 +20,21 @@ async function dnsSorgula() {
     hucre.textContent = "Sorgulanıyor...";
 
     try {
+      // Google'ın herkese açık DNS servisine soruyoruz (DNS over HTTPS)
       const cevap = await fetch("https://dns.google/resolve?name=" + sorgu.isim + "&type=" + sorgu.tur);
       const veri = await cevap.json();
 
-      if (veri.Answer) {
-        hucre.textContent = veri.Answer.map(kayit => kayit.data).join(", ");
+      // Cevapta zincir halinde başka türler de gelebilir (ör. A sorgusunda önce CNAME),
+      // sadece istediğimiz türdeki kayıtları alıyoruz
+      const kayitlar = (veri.Answer || []).filter(kayit => kayit.type === sorgu.no);
+
+      if (kayitlar.length > 0) {
+        hucre.textContent = kayitlar.map(kayit => kayit.data).join(", ");
       } else {
-        hucre.textContent = "Kayıt bulunamadı";
+        hucre.textContent = sorgu.yoksa;
       }
     } catch (hata) {
-      hucre.textContent = "Sorgulanamadı";
+      hucre.textContent = "Sorgulanamadı (internet bağlantısını kontrol edin)";
     }
   }
 }

@@ -570,3 +570,18 @@ footer { color: var(--yazi-soluk); font-size: .9rem; }
 @media (max-width: 576px) {
   .sain-medya { height: 220px; }
 }
+
+/* Galeri okları sadece ortadaki yuvarlak buton kadar yer kaplasın;
+   aksi halde videonun alt çubuğundaki (tam ekran, ses) butonların üstüne biniyor */
+#projeGaleri .carousel-control-prev,
+#projeGaleri .carousel-control-next {
+  top: 50%;
+  bottom: auto;
+  width: 2.8rem;
+  height: 2.8rem;
+  transform: translateY(-50%);
+  opacity: .85;
+  z-index: 5;            /* videonun üstünde dursun */
+}
+#projeGaleri .carousel-control-prev { left: .75rem; }
+#projeGaleri .carousel-control-next { right: .75rem; }

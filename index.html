@@ -295,24 +295,30 @@
     <div class="container">
       <h2 class="baslik">Deneyim &amp; Topluluk</h2>
       <div class="row g-4">
-        <div class="col-md-4">
-          <!-- Tıklanınca proje penceresiyle aynı modal açılır -->
-          <button type="button" class="deneyim-karti tiklanabilir h-100" data-proje="sain">
-            <i class="bi bi-people"></i>
-            <h5 class="fw-bold">SAIN · Yapay Zeka Topluluğu</h5>
-            <p class="mb-2">Üniversitemin yapay zeka öğrenci topluluğu SAIN'de yönetim kurulu üyesiyim.</p>
-            <span class="detay-linki">Seminerden kareler <i class="bi bi-play-circle"></i></span>
+        <!-- Öne çıkan kart: seminer videosu sessiz döngüde oynar, tıklanınca detay penceresi açılır -->
+        <div class="col-lg-7">
+          <button type="button" class="sain-karti" data-proje="sain">
+            <div class="sain-medya">
+              <video class="sain-video" src="img/sain-seminer.mp4" poster="img/sain-seminer-kapak.jpg"
+                     muted loop playsinline preload="metadata" aria-hidden="true"></video>
+              <span class="sain-rozet"><i class="bi bi-circle-fill"></i> Seminer · Ekim 2026</span>
+            </div>
+            <div class="sain-metin">
+              <span class="proje-turu">Topluluk · Yönetim kurulu</span>
+              <h5>SAIN · Yapay Zeka Topluluğu</h5>
+              <p>Üniversitemin yapay zeka ve veri bilimi öğrenci topluluğu SAIN'in yönetim kurulundayım. Toplulukta seminer düzenleyip sunum yaptım.</p>
+              <span class="detay-linki">Seminerden kareler <i class="bi bi-arrow-right"></i></span>
+            </div>
           </button>
         </div>
-        <div class="col-md-4">
-          <div class="deneyim-karti h-100">
+
+        <div class="col-lg-5 d-flex flex-column gap-4">
+          <div class="deneyim-karti flex-fill">
             <i class="bi bi-mic"></i>
             <h5 class="fw-bold">Seminer &amp; Konuşma</h5>
             <p class="mb-0">Toplulukta seminer düzenledim ve Erasmus+ deneyimim üzerine konuşma yaptım.</p>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="deneyim-karti h-100">
+          <div class="deneyim-karti flex-fill">
             <i class="bi bi-diagram-3"></i>
             <h5 class="fw-bold">Ekip Çalışması</h5>
             <p class="mb-0">Portekiz'de uluslararası bir ekipte çalıştım; şimdi 7 kişilik pet robot ekibine liderlik ediyorum.</p>

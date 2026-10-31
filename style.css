@@ -503,3 +503,68 @@ footer { color: var(--yazi-soluk); font-size: .9rem; }
   background: none;
   margin: 0;
 }
+
+/* ===== SAIN ÖNE ÇIKAN KART (videolu) ===== */
+.sain-karti {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  text-align: left;
+  color: inherit;
+  background: var(--kart);
+  border: none;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: var(--golge);
+  transition: transform .25s, box-shadow .25s;
+}
+.sain-karti:hover,
+.sain-karti:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(92, 78, 60, .14);
+  outline: none;
+}
+.sain-karti:hover .detay-linki i { transform: translateX(4px); }
+
+.sain-medya {
+  position: relative;
+  height: 280px;
+  background: var(--zemin-2);
+}
+.sain-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 58%;   /* dikey videonun konuşmacının olduğu kısmı */
+  display: block;
+}
+/* Alt kenara doğru hafif karartma: video kartın metnine yumuşak geçsin */
+.sain-medya::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(30, 28, 25, .35));
+  pointer-events: none;
+}
+.sain-rozet {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 1;
+  background: rgba(255, 255, 255, .88);
+  color: #3d3a36;
+  font-size: .8rem;
+  font-weight: 700;
+  padding: .3rem .75rem;
+  border-radius: 999px;
+}
+.sain-rozet i { color: #e0705a; font-size: .5rem; vertical-align: middle; animation: nabiz 1.6s infinite; }
+.sain-metin { padding: 1.4rem 1.5rem 1.5rem; }
+.sain-metin h5 { font-weight: 800; margin: .25rem 0 .5rem; }
+.sain-metin p { color: var(--yazi-soluk); margin-bottom: .9rem; }
+
+@media (max-width: 576px) {
+  .sain-medya { height: 220px; }
+}

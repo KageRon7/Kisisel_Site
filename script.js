@@ -291,6 +291,23 @@ document.querySelectorAll("[data-proje]").forEach(function (kart) {
 });
 
 
+// Deneyim bölümündeki seminer videosu: sadece ekranda görünürken oynasın.
+// Kullanıcı sistemde "hareketi azalt" seçtiyse hiç oynatma, kapak resmi kalsın.
+const sainVideo = document.querySelector(".sain-video");
+const hareketAzalt = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (sainVideo && !hareketAzalt) {
+  new IntersectionObserver(function (girdiler) {
+    girdiler.forEach(function (girdi) {
+      if (girdi.isIntersecting) {
+        sainVideo.play().catch(() => {});
+      } else {
+        sainVideo.pause();
+      }
+    });
+  }, { threshold: 0.4 }).observe(sainVideo);
+}
+
+
 // =====================================================
 // 3) YAZI MAKİNESİ EFEKTİ
 // Dizideki cümleleri harf harf yazar, sonra siler, sıradakine geçer.

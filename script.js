@@ -291,11 +291,14 @@ document.querySelectorAll("[data-proje]").forEach(function (kart) {
 });
 
 
-// Deneyim bölümündeki seminer videosu: sadece ekranda görünürken oynasın.
-// Kullanıcı sistemde "hareketi azalt" seçtiyse hiç oynatma, kapak resmi kalsın.
+// Deneyim bölümündeki seminer videosu GIF gibi kendiliğinden oynar (HTML'deki autoplay).
+// Ekrandan çıkınca durur, geri gelince devam eder; "hareketi azalt" açıksa hiç oynamaz.
 const sainVideo = document.querySelector(".sain-video");
 const hareketAzalt = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-if (sainVideo && !hareketAzalt) {
+if (sainVideo && hareketAzalt) {
+  sainVideo.removeAttribute("autoplay");
+  sainVideo.pause();
+} else if (sainVideo) {
   new IntersectionObserver(function (girdiler) {
     girdiler.forEach(function (girdi) {
       if (girdi.isIntersecting) {

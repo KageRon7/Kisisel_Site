@@ -6,6 +6,11 @@
   <meta name="description" content="Ferhat Yürük — Bilgisayar Mühendisliği öğrencisi. Yapay zeka, robotik ve oyun geliştirme.">
   <title>Ferhat Yürük</title>
 
+  <!-- Yumuşak, yuvarlak hatlı yazı tipi -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
   <!-- Bootstrap CSS ve ikonlar -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
@@ -34,7 +39,7 @@
           <li class="nav-item"><a class="nav-link" href="#deneyim">Deneyim</a></li>
           <li class="nav-item"><a class="nav-link" href="#iletisim">İletişim</a></li>
           <li class="nav-item ms-lg-2">
-            <button id="temaButonu" class="btn btn-sm btn-outline-secondary" type="button" aria-label="Temayı değiştir">
+            <button id="temaButonu" class="btn btn-sm tema-butonu" type="button" aria-label="Temayı değiştir">
               <i class="bi bi-moon-stars"></i>
             </button>
           </li>
@@ -46,47 +51,46 @@
   <!-- ===== GİRİŞ (HERO) ===== -->
   <header id="ana" class="giris d-flex align-items-center">
     <div class="container">
-      <div class="row align-items-center g-5">
+      <div class="row align-items-center g-4 g-lg-5">
         <div class="col-lg-7">
-          <span class="badge staj-rozeti mb-3">
+          <span class="staj-rozeti mb-3">
             <i class="bi bi-circle-fill me-1"></i> Erasmus+ staj yeri arıyorum
           </span>
-          <h1 class="display-4 fw-bold mb-3">Merhaba, ben <span class="vurgu">Ferhat Yürük</span></h1>
+          <h1 class="display-4 fw-bold mb-3">Merhaba, ben <span class="vurgu">Ferhat</span></h1>
           <p class="fs-4 mb-2">
             <span id="yaziMakinesi"></span><span class="imlec">|</span>
           </p>
           <p class="lead text-body-secondary mb-4">
             Necmettin Erbakan Üniversitesi'nde Bilgisayar Mühendisliği öğrencisiyim.
-            Yapay zeka, robotik ve oyun geliştirme alanlarında projeler üretiyorum.
+            Yazdığım kodun gerçek dünyada hareket eden bir şeye dönüşmesini seviyorum:
+            yapay zeka, robotik ve oyun geliştirme üzerine çalışıyorum.
           </p>
           <div class="d-flex flex-wrap gap-2">
-            <a href="#iletisim" class="btn btn-primary btn-lg">İletişime geç</a>
-            <a href="#projeler" class="btn btn-outline-primary btn-lg">Projelerim</a>
-            <a href="https://github.com/KageRon7" target="_blank" rel="noopener" class="btn btn-outline-secondary btn-lg">
-              <i class="bi bi-github"></i> GitHub
+            <a href="#projeler" class="btn btn-ana btn-lg">Projelerime bak</a>
+            <a href="#iletisim" class="btn btn-cizgili btn-lg">İletişime geç</a>
+            <a href="https://github.com/KageRon7" target="_blank" rel="noopener" class="btn btn-cizgili btn-lg">
+              <i class="bi bi-github"></i>
             </a>
           </div>
         </div>
 
         <div class="col-lg-5">
           <!-- Kısa bilgi kartı -->
-          <div class="card bilgi-karti shadow-sm">
-            <div class="card-body p-4">
-              <div class="d-flex align-items-center mb-3">
-                <div class="avatar me-3">FY</div>
-                <div>
-                  <h5 class="mb-0">Ferhat Yürük</h5>
-                  <small class="text-body-secondary">Bilgisayar Mühendisliği · 2028</small>
-                </div>
+          <div class="bilgi-karti">
+            <div class="d-flex align-items-center mb-3">
+              <div class="avatar me-3">FY</div>
+              <div>
+                <h5 class="mb-0 fw-bold">Ferhat Yürük</h5>
+                <small class="text-body-secondary">Bilgisayar Mühendisliği · 2028</small>
               </div>
-              <ul class="list-unstyled mb-0 bilgi-listesi">
-                <li><i class="bi bi-geo-alt"></i> Alanya, Antalya</li>
-                <li><i class="bi bi-mortarboard"></i> Necmettin Erbakan Üniversitesi</li>
-                <li><i class="bi bi-airplane"></i> Erasmus: IPG Guarda, Portekiz</li>
-                <li><i class="bi bi-translate"></i> Türkçe · İngilizce (akıcı)</li>
-                <li><i class="bi bi-globe-europe-africa"></i> ~11 ülke gezdim</li>
-              </ul>
             </div>
+            <ul class="list-unstyled mb-0 bilgi-listesi">
+              <li><i class="bi bi-geo-alt"></i> Alanya, Antalya</li>
+              <li><i class="bi bi-mortarboard"></i> Necmettin Erbakan Üniversitesi</li>
+              <li><i class="bi bi-airplane"></i> Erasmus: IPG Guarda, Portekiz</li>
+              <li><i class="bi bi-translate"></i> Türkçe · İngilizce (akıcı)</li>
+              <li><i class="bi bi-globe-europe-africa"></i> ~11 ülke gezdim</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -101,13 +105,14 @@
         <div class="col-lg-7">
           <p>
             Bir konuya ilgi duyduğumda onu en ince ayrıntısına kadar öğrenmek isterim.
-            Bu merak beni yazılımın yanında donanıma da götürdü: kod yazmayı, onu
-            gerçek dünyada hareket eden bir şeye bağlamayı seviyorum.
+            Bu merak beni yazılımın yanında donanıma da götürdü: sensörden gelen veriyi
+            okuyup motoru süren koddan, ekranda çalışan web uygulamasına kadar her katmanda
+            çalışmayı seviyorum.
           </p>
           <p>
             2026 bahar döneminde Erasmus+ ile Portekiz'deki Instituto Politécnico da Guarda'da
-            okudum. Farklı bir ülkede ders almak, uluslararası ekiplerle çalışmak ve İngilizceyi
-            her gün kullanmak bana çok şey kattı.
+            okudum. Uluslararası bir ekiple otonom itfaiye robotu geliştirdik ve İngilizceyi
+            her gün çalışma dili olarak kullandım.
           </p>
           <p class="mb-0">
             Şu anda 7 kişilik bir öğrenci ekibine liderlik ederek masaüstü bir "evcil" robot
@@ -116,18 +121,18 @@
         </div>
         <div class="col-lg-5">
           <!-- Staj arayışı kutusu -->
-          <div class="staj-kutusu p-4 h-100">
-            <h5><i class="bi bi-briefcase me-2"></i>Staj arıyorum</h5>
+          <div class="staj-kutusu h-100">
+            <h5 class="fw-bold"><i class="bi bi-briefcase me-2"></i>Staj arıyorum</h5>
             <p class="mb-2">
               Erasmus+ staj hibesi kazandım ve Avrupa'da staj yapacağım bir şirket arıyorum.
             </p>
-            <p class="mb-2"><strong>İlgi alanlarım:</strong></p>
+            <p class="mb-2 fw-semibold">İlgi alanlarım:</p>
             <div class="d-flex flex-wrap gap-2 mb-3">
-              <span class="badge rounded-pill text-bg-primary">Yapay Zeka</span>
-              <span class="badge rounded-pill text-bg-primary">Robotik</span>
-              <span class="badge rounded-pill text-bg-primary">Oyun Geliştirme</span>
+              <span class="hap">Yapay Zeka</span>
+              <span class="hap">Robotik</span>
+              <span class="hap">Oyun Geliştirme</span>
             </div>
-            <a href="#iletisim" class="btn btn-sm btn-primary">Benimle iletişime geçin</a>
+            <a href="#iletisim" class="btn btn-sm btn-ana">Benimle iletişime geçin</a>
           </div>
         </div>
       </div>
@@ -141,15 +146,15 @@
       <div class="zaman-cizelgesi">
         <div class="zaman-ogesi">
           <span class="tarih">Mezuniyet: 2028 (beklenen)</span>
-          <h5>Necmettin Erbakan Üniversitesi</h5>
+          <h5 class="fw-bold">Necmettin Erbakan Üniversitesi</h5>
           <p class="text-body-secondary mb-1">Bilgisayar Mühendisliği, Lisans</p>
           <p class="mb-0">Güncel dersler: işletim sistemleri, mikroişlemciler, web programlama.</p>
         </div>
         <div class="zaman-ogesi">
           <span class="tarih">Mart – Temmuz 2026</span>
-          <h5>Instituto Politécnico da Guarda — Portekiz</h5>
+          <h5 class="fw-bold">Instituto Politécnico da Guarda — Portekiz</h5>
           <p class="text-body-secondary mb-1">Erasmus+ öğrenci değişimi</p>
-          <p class="mb-0">Robotik dersi ve MedGuard projesi bu dönemde geliştirildi.</p>
+          <p class="mb-0">Robotik dersinde otonom itfaiye robotu ve MedGuard projesi bu dönemde geliştirildi.</p>
         </div>
       </div>
     </div>
@@ -161,122 +166,129 @@
       <h2 class="baslik">Yetenekler</h2>
 
       <!-- Filtre butonları: JavaScript ile çalışır -->
-      <div class="btn-group flex-wrap mb-4" role="group" aria-label="Yetenek filtresi">
-        <button type="button" class="btn btn-outline-primary active" data-filtre="hepsi">Hepsi</button>
-        <button type="button" class="btn btn-outline-primary" data-filtre="dil">Diller</button>
-        <button type="button" class="btn btn-outline-primary" data-filtre="web">Web</button>
-        <button type="button" class="btn btn-outline-primary" data-filtre="donanim">Donanım</button>
-        <button type="button" class="btn btn-outline-primary" data-filtre="temel">Temel Konular</button>
+      <div class="d-flex flex-wrap gap-2 mb-4" role="group" aria-label="Yetenek filtresi">
+        <button type="button" class="filtre aktif" data-filtre="hepsi">Hepsi</button>
+        <button type="button" class="filtre" data-filtre="dil">Diller</button>
+        <button type="button" class="filtre" data-filtre="web">Web</button>
+        <button type="button" class="filtre" data-filtre="donanim">Donanım</button>
+        <button type="button" class="filtre" data-filtre="temel">Temel Konular</button>
       </div>
 
-      <div class="row g-3" id="yetenekListesi">
+      <div class="row g-3">
         <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="dil"><div class="yetenek-karti"><i class="bi bi-filetype-py"></i> Python</div></div>
         <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="dil"><div class="yetenek-karti"><i class="bi bi-hash"></i> C# / .NET</div></div>
         <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="dil"><div class="yetenek-karti"><i class="bi bi-filetype-js"></i> JavaScript</div></div>
-        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="dil"><div class="yetenek-karti"><i class="bi bi-cpu"></i> C / Arduino</div></div>
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="dil"><div class="yetenek-karti"><i class="bi bi-cpu"></i> C++ / Arduino</div></div>
 
         <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="web"><div class="yetenek-karti"><i class="bi bi-filetype-html"></i> HTML &amp; CSS</div></div>
         <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="web"><div class="yetenek-karti"><i class="bi bi-bootstrap"></i> Bootstrap</div></div>
         <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="web"><div class="yetenek-karti"><i class="bi bi-filetype-jsx"></i> React + Vite</div></div>
         <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="web"><div class="yetenek-karti"><i class="bi bi-hdd-network"></i> REST API</div></div>
 
-        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="donanim"><div class="yetenek-karti"><i class="bi bi-motherboard"></i> ESP32</div></div>
-        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="donanim"><div class="yetenek-karti"><i class="bi bi-gear"></i> Servo motorlar</div></div>
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="donanim"><div class="yetenek-karti"><i class="bi bi-motherboard"></i> Arduino Mega &amp; ESP32</div></div>
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="donanim"><div class="yetenek-karti"><i class="bi bi-broadcast"></i> Sensörler (sonar, IR)</div></div>
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="donanim"><div class="yetenek-karti"><i class="bi bi-gear"></i> Motor &amp; servo kontrolü</div></div>
         <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="donanim"><div class="yetenek-karti"><i class="bi bi-diagram-3"></i> Tinkercad</div></div>
 
         <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="temel"><div class="yetenek-karti"><i class="bi bi-boxes"></i> Nesne Yönelimli Programlama</div></div>
-        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="temel"><div class="yetenek-karti"><i class="bi bi-diagram-2"></i> Veri Yapıları &amp; Algoritmalar</div></div>
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="temel"><div class="yetenek-karti"><i class="bi bi-signpost-split"></i> Sonlu Durum Makineleri</div></div>
         <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="temel"><div class="yetenek-karti"><i class="bi bi-terminal"></i> İşletim Sistemleri</div></div>
         <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="temel"><div class="yetenek-karti"><i class="bi bi-git"></i> Git &amp; GitHub</div></div>
-        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="temel"><div class="yetenek-karti"><i class="bi bi-robot"></i> Yapay zeka araçları</div></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== PROJELER ===== -->
+  <!-- ===== PROJELER =====
+       Kartlar sadece kısa özet gösterir. Tıklanınca JavaScript, script.js'teki
+       "projeler" listesinden detayları alıp açılır pencereye (modal) yazar. -->
   <section id="projeler" class="py-5 bolum-acik">
     <div class="container">
       <h2 class="baslik">Projeler</h2>
+      <p class="text-body-secondary mb-4">Detayları görmek için bir projeye tıklayın.</p>
+
       <div class="row g-4">
-
         <div class="col-md-6">
-          <div class="card proje-karti h-100">
-            <div class="card-body">
-              <div class="proje-ikon"><i class="bi bi-robot"></i></div>
-              <h5 class="card-title">Masaüstü Pet Robot</h5>
-              <p class="card-text">
-                Bilgisayar başında çalışan insanlara eşlik eden, kedi görünümlü masaüstü robot.
-                Robotta zeka yok: ESP32 servoları sürüyor, beyin bilgisayarda Python ile çalışıyor
-                ve kamerayla kullanıcının yüz ifadesine tepki veriyor. 7 kişilik ekibin lideriyim.
-              </p>
-              <div class="etiketler">
-                <span>Python</span><span>ESP32</span><span>Görüntü işleme</span><span>Ekip liderliği</span>
-              </div>
+          <button type="button" class="proje-karti" data-proje="petRobot">
+            <div class="proje-gorsel renk-1"><i class="bi bi-robot"></i></div>
+            <div class="proje-metin">
+              <span class="proje-turu">Ekip projesi · Devam ediyor</span>
+              <h5>Masaüstü Pet Robot</h5>
+              <p>Bilgisayar başında çalışanlara eşlik eden, yüz ifadelerine tepki veren kedi robot.</p>
+              <span class="detay-linki">Detaylar <i class="bi bi-arrow-right"></i></span>
             </div>
-            <div class="card-footer bg-transparent border-0 pt-0">
-              <a href="https://github.com/KageRon7/pet-robot" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary">
-                <i class="bi bi-github"></i> Kodu incele
-              </a>
-            </div>
-          </div>
+          </button>
         </div>
 
         <div class="col-md-6">
-          <div class="card proje-karti h-100">
-            <div class="card-body">
-              <div class="proje-ikon"><i class="bi bi-capsule"></i></div>
-              <h5 class="card-title">MedGuard</h5>
-              <p class="card-text">
-                Erasmus döneminde tek başıma geliştirdiğim tam yığın (full-stack) web uygulaması.
-                React arayüzü, C# .NET 8 ile yazılmış bir REST API'ye bağlanıyor.
-              </p>
-              <div class="etiketler">
-                <span>React</span><span>Tailwind</span><span>.NET 8</span><span>EF Core</span>
-              </div>
+          <button type="button" class="proje-karti" data-proje="itfaiye">
+            <div class="proje-gorsel"><img src="img/itfaiye-robotu.jpg" alt="Kırmızı şasili itfaiye robotu"></div>
+            <div class="proje-metin">
+              <span class="proje-turu">Erasmus · Robotik dersi</span>
+              <h5>Otonom İtfaiye Robotu</h5>
+              <p>Odalardan oluşan bir labirentte yolunu bulup mumu tespit eden ve fanla söndüren robot.</p>
+              <span class="detay-linki">Detaylar <i class="bi bi-arrow-right"></i></span>
             </div>
-          </div>
+          </button>
         </div>
 
         <div class="col-md-6">
-          <div class="card proje-karti h-100">
-            <div class="card-body">
-              <div class="proje-ikon"><i class="bi bi-shop"></i></div>
-              <h5 class="card-title">Yegane Natural</h5>
-              <p class="card-text">
-                Gerçek bir müşteri için hazırladığım web vitrini. İhtiyaçları dinleyip
-                ürünleri sergileyen bir site olarak teslim ettim.
-              </p>
-              <div class="etiketler">
-                <span>Web</span><span>Müşteri projesi</span>
-              </div>
+          <button type="button" class="proje-karti" data-proje="medguard">
+            <div class="proje-gorsel renk-2"><i class="bi bi-capsule"></i></div>
+            <div class="proje-metin">
+              <span class="proje-turu">Bireysel · Full-stack</span>
+              <h5>MedGuard</h5>
+              <p>Erasmus döneminde tek başıma geliştirdiğim React + .NET web uygulaması.</p>
+              <span class="detay-linki">Detaylar <i class="bi bi-arrow-right"></i></span>
             </div>
-            <div class="card-footer bg-transparent border-0 pt-0">
-              <a href="https://github.com/KageRon7/yegane-natural" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary">
-                <i class="bi bi-github"></i> Kodu incele
-              </a>
-            </div>
-          </div>
+          </button>
         </div>
 
         <div class="col-md-6">
-          <div class="card proje-karti h-100">
-            <div class="card-body">
-              <div class="proje-ikon"><i class="bi bi-cpu"></i></div>
-              <h5 class="card-title">Robotik Projeleri</h5>
-              <p class="card-text">
-                Guarda'daki robotik dersinde Arduino tabanlı devreler tasarlayıp
-                Tinkercad üzerinde simüle ettim.
-              </p>
-              <div class="etiketler">
-                <span>Arduino</span><span>Tinkercad</span><span>Elektronik</span>
-              </div>
+          <button type="button" class="proje-karti" data-proje="yegane">
+            <div class="proje-gorsel renk-3"><i class="bi bi-flower1"></i></div>
+            <div class="proje-metin">
+              <span class="proje-turu">Müşteri projesi · Web</span>
+              <h5>Yegane Natural</h5>
+              <p>Gerçek bir müşteri için hazırladığım ürün vitrini web sitesi.</p>
+              <span class="detay-linki">Detaylar <i class="bi bi-arrow-right"></i></span>
             </div>
-          </div>
+          </button>
         </div>
-
       </div>
     </div>
   </section>
+
+  <!-- ===== PROJE DETAY PENCERESİ (MODAL) =====
+       Tek bir modal var; içi JavaScript ile doldurulur. -->
+  <div class="modal fade" id="projeModal" tabindex="-1" aria-labelledby="modalBaslik" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <span class="proje-turu" id="modalTur"></span>
+            <h4 class="modal-title fw-bold" id="modalBaslik"></h4>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Görsel galerisi (Bootstrap carousel) -->
+          <div id="projeGaleri" class="carousel slide mb-4">
+            <div class="carousel-inner" id="galeriIcerik"></div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#projeGaleri" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Önceki</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#projeGaleri" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Sonraki</span>
+            </button>
+          </div>
+          <div id="modalIcerik"></div>
+        </div>
+        <div class="modal-footer" id="modalAlt"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== DENEYİM ===== -->
   <section id="deneyim" class="py-5">
@@ -286,22 +298,22 @@
         <div class="col-md-4">
           <div class="deneyim-karti h-100">
             <i class="bi bi-people"></i>
-            <h5>Yapay Zeka Topluluğu</h5>
+            <h5 class="fw-bold">Yapay Zeka Topluluğu</h5>
             <p class="mb-0">Üniversitemin yapay zeka öğrenci topluluğunda yönetim kurulu üyesiyim.</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="deneyim-karti h-100">
             <i class="bi bi-mic"></i>
-            <h5>Seminer &amp; Konuşma</h5>
+            <h5 class="fw-bold">Seminer &amp; Konuşma</h5>
             <p class="mb-0">Toplulukta seminer düzenledim ve Erasmus+ deneyimim üzerine konuşma yaptım.</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="deneyim-karti h-100">
             <i class="bi bi-diagram-3"></i>
-            <h5>Ekip Liderliği</h5>
-            <p class="mb-0">Pet robot projesinde 6 kişilik ekibi alt takımlara böldüm, görevleri ve arayüzleri koordine ediyorum.</p>
+            <h5 class="fw-bold">Ekip Çalışması</h5>
+            <p class="mb-0">Portekiz'de uluslararası bir ekipte çalıştım; şimdi 7 kişilik pet robot ekibine liderlik ediyorum.</p>
           </div>
         </div>
       </div>
@@ -324,7 +336,7 @@
 
         <div class="col-lg-7">
           <!-- novalidate: tarayıcının kendi uyarılarını kapatır, kontrolü JavaScript yapar -->
-          <form id="iletisimFormu" novalidate>
+          <form id="iletisimFormu" class="form-kutusu" novalidate>
             <div class="mb-3">
               <label for="ad" class="form-label">Adınız</label>
               <input type="text" class="form-control" id="ad" placeholder="Adınız Soyadınız">
@@ -341,7 +353,7 @@
               <div class="invalid-feedback">Mesaj en az 10 karakter olmalı.</div>
               <div class="form-text"><span id="karakterSayaci">0</span> karakter</div>
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-ana">
               <i class="bi bi-send"></i> Gönder
             </button>
             <div id="formSonucu" class="alert alert-success mt-3 d-none" role="alert"></div>
@@ -359,11 +371,11 @@
   </footer>
 
   <!-- Yukarı çık butonu -->
-  <button id="yukariButonu" class="btn btn-primary yukari" type="button" aria-label="Yukarı çık">
+  <button id="yukariButonu" class="btn btn-ana yukari" type="button" aria-label="Yukarı çık">
     <i class="bi bi-arrow-up"></i>
   </button>
 
-  <!-- Bootstrap JS (menü açılıp kapanması ve scrollspy için gerekli) -->
+  <!-- Bootstrap JS (menü, modal, carousel ve scrollspy için gerekli) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>

@@ -291,26 +291,6 @@ document.querySelectorAll("[data-proje]").forEach(function (kart) {
 });
 
 
-// Deneyim bölümündeki seminer videosu GIF gibi kendiliğinden oynar (HTML'deki autoplay).
-// Ekrandan çıkınca durur, geri gelince devam eder; "hareketi azalt" açıksa hiç oynamaz.
-const sainVideo = document.querySelector(".sain-video");
-const hareketAzalt = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-if (sainVideo && hareketAzalt) {
-  sainVideo.removeAttribute("autoplay");
-  sainVideo.pause();
-} else if (sainVideo) {
-  new IntersectionObserver(function (girdiler) {
-    girdiler.forEach(function (girdi) {
-      if (girdi.isIntersecting) {
-        sainVideo.play().catch(() => {});
-      } else {
-        sainVideo.pause();
-      }
-    });
-  }, { threshold: 0.4 }).observe(sainVideo);
-}
-
-
 // =====================================================
 // 3) YAZI MAKİNESİ EFEKTİ
 // Dizideki cümleleri harf harf yazar, sonra siler, sıradakine geçer.

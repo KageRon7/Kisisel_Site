@@ -1,43 +1,51 @@
 // =====================================================
 // 1) PROJE BİLGİLERİ
 // Her proje bir nesne (object). Karta tıklanınca bu bilgiler
-// açılır pencereye (modal) yazılır. Yeni görsel eklemek için
+// açılır pencereye (modal) yazılır. Galeriye görsel eklemek için
 // "gorseller" dizisine { src: "img/dosya.jpg", aciklama: "..." } eklemek yeterli.
-// Henüz hazır olmayan görseller için { yerTutucu: true, aciklama: "..." } kullanılıyor.
+// Video için: { video: "img/dosya.mp4", kapak: "img/kapak.jpg", aciklama: "..." }
 // =====================================================
 const projeler = {
   petRobot: {
     baslik: "Masaüstü Pet Robot",
     tur: "Ekip projesi · Devam ediyor",
     gorseller: [
-      { yerTutucu: true, ikon: "bi-brush", aciklama: "Konsept çizimleri (yakında)" },
-      { yerTutucu: true, ikon: "bi-rulers", aciklama: "Teknik resim (yakında)" }
+      { video: "img/petrobot-yuz-animasyonu.mp4", kapak: "img/petrobot-yuz-animasyonu-kapak.jpg", aciklama: "Yüz Atölyesi: kedinin ifade animasyonları" },
+      { src: "img/petrobot-teknik-resim.jpg", aciklama: "Beta prototip teknik resmi" }
     ],
     bolumler: [
       {
         baslik: "Vizyon",
-        metin: "Bilgisayar başında uzun saatler geçiren insanlara eşlik eden, evcil bir hayvan sıcaklığı veren masaüstü bir robot. Yaklaşık 15 cm boyunda, kutu kafalı sevimli bir kedi. İlk sürümde konuşmuyor; duygularını beden diliyle ve yüz ekranındaki ifadelerle gösteriyor."
+        metin: "Bilgisayar başında uzun saatler geçiren insanlara eşlik eden, evcil bir hayvan sıcaklığı veren masaüstü bir robot: 15 cm boyunda, kutu kafalı bir kedi. İlk sürümde konuşmuyor; duygularını beden diliyle ve yüzündeki ekranla gösteriyor."
+      },
+      {
+        baslik: "Tasarım",
+        liste: [
+          "5 servo: gövde ±45°, baş sağ-sol ±90° ve yukarı-aşağı, iki kulak ayrı ayrı hareket ediyor.",
+          "Kafanın ön yüzü 2.4\" bir ekran; gözler, kaşlar ve ağız burada çiziliyor.",
+          "İfadeleri tasarlamak için \"Yüz Atölyesi\" adında bir araç yaptık: yüz ve motorlar ayarlanıyor, anahtar kareler dizilip animasyon kaydediliyor.",
+          "Ağırlık tabanda: ESP32 ve güç girişi tabanın içinde, gövde bir rulman üzerinde dönüyor."
+        ]
       },
       {
         baslik: "Mimari",
         liste: [
-          "Robotun üzerinde zeka yok: ESP32 yalnızca servoları sürüyor ve seri porttan JSON komut alıyor.",
+          "Robotun üzerinde zeka yok: ESP32 yalnızca servoları ve ekranı sürüyor, seri porttan JSON komut alıyor.",
           "Beyin bilgisayarda Python ile çalışıyor; kamera görüntüsünden kullanıcının yüz ifadesini algılıyor.",
-          "Donanım hazır olana kadar ekip, sanal bir donanım simülasyonu (HAL) üzerinde geliştirme yapıyor.",
-          "Takımlar arası iletişim, önceden yazılmış JSON arayüz sözleşmeleriyle sağlanıyor."
+          "Donanım hazır olana kadar ekip, sanal bir donanım simülasyonu (HAL) üzerinde geliştirme yapıyor."
         ]
       },
       {
         baslik: "Benim rolüm",
-        metin: "7 kişilik ekibin lideriyim. Ekibi yapay zeka, gömülü sistemler ve görüntü işleme alt takımlarına ayırdım; mimariyi ve arayüzleri belirliyor, hocalarla ve tasarımcımızla iletişimi yürütüyorum."
+        metin: "7 kişilik ekibin lideriyim. Ekibi yapay zeka, gömülü sistemler ve görüntü işleme alt takımlarına ayırdım; mimariyi ve takımlar arası arayüzleri belirliyor, hocalarla ve tasarımcımızla iletişimi yürütüyorum."
       },
       {
         baslik: "Durum",
-        metin: "Uçtan uca ilk demo çalıştı: kullanıcı gülümseyince ekrandaki kedi tepki veriyor. Sırada yüz animasyonları ve fiziksel gövde var."
+        metin: "Uçtan uca ilk demo çalıştı: kullanıcı gülümseyince ekrandaki kedi tepki veriyor. Sırada fiziksel gövde var."
       }
     ],
-    etiketler: ["Python", "ESP32", "Görüntü işleme", "Servo", "Ekip liderliği"],
-    github: "https://github.com/KageRon7/pet-robot"
+    etiketler: ["Python", "ESP32", "Görüntü işleme", "Servo", "Animasyon", "Ekip liderliği"],
+    linkler: [{ yazi: "Kodu GitHub'da incele", ikon: "bi-github", adres: "https://github.com/KageRon7/pet-robot" }]
   },
 
   itfaiye: {
@@ -45,12 +53,13 @@ const projeler = {
     tur: "Erasmus · Robotik dersi · 2026",
     gorseller: [
       { src: "img/itfaiye-robotu.jpg", aciklama: "Robotun son hali" },
-      { yerTutucu: true, ikon: "bi-rulers", aciklama: "Teknik resim (hazırlanıyor)" }
+      { src: "img/itfaiye-teknik-resim.jpg", aciklama: "Teknik resim: ön, sol ve üst görünüş" },
+      { src: "img/itfaiye-baglanti-semasi.jpg", aciklama: "Elektrik bağlantı şeması" }
     ],
     bolumler: [
       {
         baslik: "Görev",
-        metin: "Odalardan oluşan bir labirentte kendi başına dolaşıp yanan mumu bulan ve fanla söndüren robot. Portekiz'deki Erasmus dönemimde, robotik dersinde uluslararası bir öğrenci ekibiyle geliştirdik ve çalıştırdık."
+        metin: "Odalardan oluşan bir labirentte kendi başına dolaşıp yanan mumu bulan ve fanla söndüren robot. Portekiz'deki Erasmus dönemimde, robotik dersinde uluslararası bir öğrenci ekibiyle geliştirdik ve çalıştırdık. Teknik resmini ve bağlantı şemasını ben çizdim."
       },
       {
         baslik: "Nasıl çalışıyor?",
@@ -65,10 +74,10 @@ const projeler = {
       {
         baslik: "Donanım",
         liste: [
-          "Arduino Mega 2560, H-köprüsüyle sürülen 2 DC motor",
-          "3 ultrasonik mesafe sensörü (ön, sol, sağ)",
-          "IR kamera ve UVTron alev dedektörü",
-          "Çizgi sensörü, 2 çarpma sensörü, OLED ekran ve fan"
+          "Arduino Mega 2560, L298N H-köprüsüyle sürülen 2 DC motor",
+          "3 HC-SR04 ultrasonik sensör (ön, sol, sağ)",
+          "I²C üzerinden IR kamera ve OLED ekran, UVTron alev dedektörü",
+          "Çizgi sensörü, 2 tampon anahtarı, START/STOP butonları ve fan"
         ]
       },
       {
@@ -76,48 +85,82 @@ const projeler = {
         metin: "C++ ile yazıldı. Motor ve alev sensörü ayrı sınıflara (Motor, FlameSensor) ayrıldı; her alt sistem için ayrı test modları var."
       }
     ],
-    etiketler: ["C++", "Arduino", "Sonlu durum makinesi", "P kontrol", "Sensörler"],
-    github: "https://github.com/KageRon7/firefighting-robot"
+    etiketler: ["C++", "Arduino", "Sonlu durum makinesi", "P kontrol", "Sensörler", "Teknik çizim"],
+    linkler: [
+      { yazi: "Teknik resim (PDF)", ikon: "bi-file-earmark-pdf", adres: "img/itfaiye-teknik-resim.pdf" },
+      { yazi: "Bağlantı şeması (PDF)", ikon: "bi-file-earmark-pdf", adres: "img/itfaiye-baglanti-semasi.pdf" },
+      { yazi: "Kodu GitHub'da incele", ikon: "bi-github", adres: "https://github.com/KageRon7/firefighting-robot" }
+    ]
   },
 
   medguard: {
     baslik: "MedGuard",
-    tur: "Bireysel · Full-stack · 2026",
+    tur: "Bireysel · Full-stack · Erasmus 2026",
     gorseller: [
-      { yerTutucu: true, ikon: "bi-window", aciklama: "Ekran görüntüleri (yakında)" }
+      { src: "img/medguard-giris.jpg", aciklama: "Giriş ekranı" },
+      { src: "img/medguard-panel.jpg", aciklama: "Genel bakış paneli" },
+      { src: "img/medguard-triyaj.jpg", aciklama: "Triyaj: Manchester ölçeğiyle öncelik" },
+      { src: "img/medguard-sira.jpg", aciklama: "Önceliğe göre sıralanan bekleme sırası" },
+      { src: "img/medguard-muayene.jpg", aciklama: "Muayene ve reçete kaydı" },
+      { src: "img/medguard-taburcu.jpg", aciklama: "Taburcu ekranı" },
+      { src: "img/medguard-planlama.jpg", aciklama: "Planlama: Trello panosu" }
     ],
     bolumler: [
       {
         baslik: "Proje",
-        metin: "Erasmus dönemimde baştan sona tek başıma geliştirdiğim full-stack web uygulaması."
+        metin: "Hastane acil servisleri için bir yönetim sistemi. Hasta triyajdan geçer, Manchester ölçeğine göre öncelik alır (Acil, Çok Acil, Acil, Az Acil), bekleme sırasına önceliğine göre yerleşir, muayene edilir ve taburcu edilir. Portekiz'de geliştirdiğim için arayüz Portekizce."
+      },
+      {
+        baslik: "Öne çıkanlar",
+        liste: [
+          "Hastaları bekleme sırasında önceliğe göre sıralayan algoritma",
+          "Hasta numarası için Modulus 11 doğrulama algoritması",
+          "Hasta, Triyaj ve Muayene veri modelleri 3. normal forma (3NF) göre tasarlandı",
+          "Uçtan uca akış: giriş → triyaj → bekleme sırası → muayene → taburcu"
+        ]
       },
       {
         baslik: "Mimari",
         liste: [
-          "Ön yüz: React + Vite, Tailwind CSS ile tasarım",
-          "Arka yüz: C# .NET 8 ile yazılmış REST API",
-          "Veri: Entity Framework Core ile bellek içi (in-memory) veritabanı; kurulum gerektirmeden çalışıyor"
+          "Ön yüz: React + Vite, Tailwind CSS",
+          "Arka yüz: C# .NET ile modüler monolit yapıda REST API",
+          "Veri: Entity Framework Core"
         ]
+      },
+      {
+        baslik: "Planlama",
+        metin: "Projeyi tek başıma, görevlere bölüp bir Trello panosunda (yapılacaklar / geliştirmede / bitenler) takip ederek geliştirdim."
       }
     ],
-    etiketler: ["React", "Vite", "Tailwind", "C#", ".NET 8", "EF Core"],
-    github: null
+    etiketler: ["React", "Vite", "Tailwind", "C#", ".NET", "EF Core", "Algoritmalar"],
+    linkler: []
   },
 
   yegane: {
     baslik: "Yegane Natural",
-    tur: "Müşteri projesi · Web",
+    tur: "Müşteri projesi · E-ticaret vitrini",
     gorseller: [
-      { yerTutucu: true, ikon: "bi-window", aciklama: "Site ekran görüntüleri (yakında)" }
+      { src: "img/yegane-anasayfa.jpg", aciklama: "Ana sayfa" },
+      { src: "img/yegane-cok-satanlar.jpg", aciklama: "Çok satanlar" },
+      { src: "img/yegane-urunler.jpg", aciklama: "Ürün kartları ve WhatsApp'tan sipariş" }
     ],
     bolumler: [
       {
         baslik: "Proje",
-        metin: "Gerçek bir müşteri için hazırladığım ürün vitrini web sitesi. Müşterinin ihtiyaçlarını dinleyip ürünlerini sergileyen bir site olarak teslim ettim."
+        metin: "El yapımı, doğal içerikli kozmetik ve aromaterapi ürünleri üreten Yegane Natural için hazırladığım web vitrini. Gerçek bir müşteriyle çalıştım: ihtiyaçlarını dinleyip markanın sakin, doğal tarzına uygun bir tasarım çıkardım."
+      },
+      {
+        baslik: "Sitede neler var?",
+        liste: [
+          "Kategorilere ayrılmış ürünler ve çok satanlar bölümü",
+          "Fiyat, içerik ve değerlendirmeleri gösteren ürün kartları",
+          "WhatsApp üzerinden tek tıkla sipariş",
+          "Bakım rehberleri içeren blog bölümü ve indirim kodlu bülten kaydı"
+        ]
       }
     ],
-    etiketler: ["Web", "Müşteri projesi"],
-    github: "https://github.com/KageRon7/yegane-natural"
+    etiketler: ["Web tasarım", "Responsive", "Müşteri projesi"],
+    linkler: [{ yazi: "Kodu GitHub'da incele", ikon: "bi-github", adres: "https://github.com/KageRon7/yegane-natural" }]
   }
 };
 
@@ -148,10 +191,18 @@ function projeyiAc(anahtar) {
             <span>${gorsel.aciklama}</span>
           </div>
         </div>`;
+    } else if (gorsel.video) {
+      // Video: sessiz, döngüde, kontrollerle
+      galeriHTML += `
+        <div class="carousel-item${aktif}">
+          <video src="${gorsel.video}" poster="${gorsel.kapak}" controls muted loop playsinline preload="none"></video>
+          <div class="carousel-caption">${gorsel.aciklama}</div>
+        </div>`;
     } else {
       galeriHTML += `
         <div class="carousel-item${aktif}">
           <img src="${gorsel.src}" alt="${gorsel.aciklama}">
+          <a href="${gorsel.src}" target="_blank" class="buyut-linki"><i class="bi bi-arrows-fullscreen"></i> Büyüt</a>
           <div class="carousel-caption">${gorsel.aciklama}</div>
         </div>`;
     }
@@ -177,14 +228,21 @@ function projeyiAc(anahtar) {
     "</div>";
   document.getElementById("modalIcerik").innerHTML = icerikHTML;
 
-  // --- Alt kısım: GitHub linki varsa göster ---
+  // --- Alt kısım: proje linkleri (GitHub, PDF...) ---
   const alt = document.getElementById("modalAlt");
-  alt.innerHTML = proje.github
-    ? `<a href="${proje.github}" target="_blank" rel="noopener" class="btn btn-ana"><i class="bi bi-github"></i> Kodu GitHub'da incele</a>`
+  alt.innerHTML = proje.linkler.length > 0
+    ? proje.linkler.map(link =>
+        `<a href="${link.adres}" target="_blank" rel="noopener" class="btn btn-sm btn-cizgili"><i class="bi ${link.ikon}"></i> ${link.yazi}</a>`
+      ).join("")
     : '<span class="text-body-secondary small">Kod şu an herkese açık değil.</span>';
 
   modal.show();
 }
+
+// Pencere kapanınca çalan video varsa durdur
+modalElemani.addEventListener("hidden.bs.modal", function () {
+  modalElemani.querySelectorAll("video").forEach(v => v.pause());
+});
 
 // Her proje kartına tıklama olayı ekle
 document.querySelectorAll(".proje-karti").forEach(function (kart) {

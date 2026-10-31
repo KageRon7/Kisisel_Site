@@ -97,43 +97,54 @@ const projeler = {
     baslik: "MedGuard",
     tur: "Bireysel · Full-stack · Erasmus 2026",
     gorseller: [
-      { src: "img/medguard-giris.jpg", aciklama: "Giriş ekranı" },
-      { src: "img/medguard-panel.jpg", aciklama: "Genel bakış paneli" },
-      { src: "img/medguard-triyaj.jpg", aciklama: "Triyaj: Manchester ölçeğiyle öncelik" },
+      { src: "img/medguard-triyaj.jpg", aciklama: "Triyaj: Manchester protokolüyle öncelik" },
       { src: "img/medguard-sira.jpg", aciklama: "Önceliğe göre sıralanan bekleme sırası" },
       { src: "img/medguard-muayene.jpg", aciklama: "Muayene ve reçete kaydı" },
       { src: "img/medguard-taburcu.jpg", aciklama: "Taburcu ekranı" },
+      { src: "img/medguard-giris.jpg", aciklama: "Giriş ekranı" },
+      { src: "img/medguard-panel.jpg", aciklama: "Genel bakış paneli" },
+      { src: "img/medguard-veritabani.jpg", aciklama: "PostgreSQL veritabanı şeması" },
+      { src: "img/medguard-konsept-triyaj.jpg", aciklama: "Analiz aşaması: triyaj ekranı konsepti" },
+      { src: "img/medguard-konsept-sira.jpg", aciklama: "Analiz aşaması: bekleme sırası konsepti" },
       { src: "img/medguard-planlama.jpg", aciklama: "Planlama: Trello panosu" }
     ],
     bolumler: [
       {
         baslik: "Proje",
-        metin: "Hastane acil servisleri için bir yönetim sistemi. Hasta triyajdan geçer, Manchester ölçeğine göre öncelik alır (Acil, Çok Acil, Acil, Az Acil), bekleme sırasına önceliğine göre yerleşir, muayene edilir ve taburcu edilir. Portekiz'de geliştirdiğim için arayüz Portekizce."
+        metin: "Hastane acil servisleri için hasta akışı yönetim sistemi. Hemşire hastanın şikayetlerini girer, sistem Manchester Triyaj Protokolü'ne göre bir renk (öncelik) atar; hasta geliş saatine göre değil önceliğine göre sıraya girer, doktor muayene eder ve taburcu eder. Portekiz'de geliştirdiğim için arayüz Portekizce."
       },
       {
         baslik: "Öne çıkanlar",
         liste: [
-          "Hastaları bekleme sırasında önceliğe göre sıralayan algoritma",
-          "Hasta numarası için Modulus 11 doğrulama algoritması",
-          "Hasta, Triyaj ve Muayene veri modelleri 3. normal forma (3NF) göre tasarlandı",
+          "Manchester protokolü: belirtilere göre 5 renkten birini atayan servis (Kırmızı → Turuncu → Sarı → Yeşil → Mavi)",
+          "Bekleme sırası geliş saatine göre değil, triyaj rengine göre sıralanıyor",
+          "Portekiz sağlık numarası (9 hane) için Modulus 11 kontrol basamağı doğrulaması",
           "Uçtan uca akış: giriş → triyaj → bekleme sırası → muayene → taburcu"
+        ]
+      },
+      {
+        baslik: "Veritabanı",
+        liste: [
+          "PostgreSQL üzerinde 4 tablo: Hasta (Paciente), Doktor (Medico), Triyaj (Triagem), Muayene (Consulta)",
+          "3. normal forma (3NF) göre tasarlandı; bir hastanın birden çok triyajı ve muayenesi olabiliyor (1–N ilişkiler)",
+          "Şema EF Core migration'larıyla kuruluyor; .NET olmadan kurmak için düz SQL şema ve örnek veri dosyaları da var"
         ]
       },
       {
         baslik: "Mimari",
         liste: [
-          "Ön yüz: React + Vite, Tailwind CSS",
-          "Arka yüz: C# .NET ile modüler monolit yapıda REST API",
-          "Veri: Entity Framework Core"
+          "Arka yüz: ASP.NET Core Web API (.NET 8, C#), Swagger ile belgelenmiş REST uç noktaları",
+          "Veri erişimi: Entity Framework Core + Npgsql",
+          "Ön yüz: React 19, Vite, React Router, Tailwind CSS"
         ]
       },
       {
-        baslik: "Planlama",
-        metin: "Projeyi tek başıma, görevlere bölüp bir Trello panosunda (yapılacaklar / geliştirmede / bitenler) takip ederek geliştirdim."
+        baslik: "Süreç",
+        metin: "Önce analiz aşamasında ekran konseptlerini tasarladım, sonra işi görevlere bölüp bir Trello panosunda takip ederek tek başıma geliştirdim."
       }
     ],
-    etiketler: ["React", "Vite", "Tailwind", "C#", ".NET", "EF Core", "Algoritmalar"],
-    linkler: []
+    etiketler: ["React", "C#", ".NET 8", "PostgreSQL", "EF Core", "REST API", "Algoritmalar"],
+    linkler: [{ yazi: "Kodu GitHub'da incele", ikon: "bi-github", adres: "https://github.com/KageRon7/MedGuard" }]
   },
 
   yegane: {
@@ -258,7 +269,7 @@ document.querySelectorAll(".proje-karti").forEach(function (kart) {
 // =====================================================
 const cumleler = [
   "Bilgisayar Mühendisliği öğrencisi",
-  "Yapay zeka & robotik meraklısı",
+  "Yapay zeka ve robotik",
   "Erasmus+ staj yeri arıyor"
 ];
 let cumleNo = 0;      // şu an hangi cümledeyiz

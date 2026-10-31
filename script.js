@@ -147,6 +147,30 @@ const projeler = {
     linkler: [{ yazi: "Kodu GitHub'da incele", ikon: "bi-github", adres: "https://github.com/KageRon7/MedGuard" }]
   },
 
+  sain: {
+    baslik: "SAIN · Seydişehir Artificial Intelligence Network",
+    tur: "Topluluk · Yönetim kurulu",
+    gorseller: [
+      { video: "img/sain-seminer.mp4", kapak: "img/sain-seminer-kapak.jpg", aciklama: "Seminerden kısa bir kurgu" },
+      { src: "img/sain-sunum.jpg", aciklama: "Topluluk seminerinde sunum" }
+    ],
+    bolumler: [
+      {
+        baslik: "Topluluk",
+        metin: "SAIN, Necmettin Erbakan Üniversitesi'nde yapay zeka ve veri bilimi üzerine çalışan bir öğrenci topluluğu. Topluluğun yönetim kurulunda yer alıyorum."
+      },
+      {
+        baslik: "Neler yaptım?",
+        liste: [
+          "Toplulukta bir seminer düzenledim ve sunumu yaptım.",
+          "Erasmus+ deneyimimi anlatan bir konuşma yaptım."
+        ]
+      }
+    ],
+    etiketler: ["Topluluk", "Sunum", "Etkinlik organizasyonu"],
+    linkler: []
+  },
+
   yegane: {
     baslik: "Yegane Natural",
     tur: "Müşteri projesi · E-ticaret vitrini",
@@ -206,8 +230,7 @@ function projeyiAc(anahtar) {
       // Video: sessiz, döngüde, kontrollerle
       galeriHTML += `
         <div class="carousel-item${aktif}">
-          <video src="${gorsel.video}" poster="${gorsel.kapak}" controls muted loop playsinline preload="none"></video>
-          <div class="carousel-caption">${gorsel.aciklama}</div>
+          <video src="${gorsel.video}" poster="${gorsel.kapak}" title="${gorsel.aciklama}" controls muted loop playsinline preload="none"></video>
         </div>`;
     } else {
       galeriHTML += `
@@ -241,22 +264,27 @@ function projeyiAc(anahtar) {
 
   // --- Alt kısım: proje linkleri (GitHub, PDF...) ---
   const alt = document.getElementById("modalAlt");
-  alt.innerHTML = proje.linkler.length > 0
-    ? proje.linkler.map(link =>
-        `<a href="${link.adres}" target="_blank" rel="noopener" class="btn btn-sm btn-cizgili"><i class="bi ${link.ikon}"></i> ${link.yazi}</a>`
-      ).join("")
-    : '<span class="text-body-secondary small">Kod şu an herkese açık değil.</span>';
+  alt.innerHTML = proje.linkler.map(link =>
+    `<a href="${link.adres}" target="_blank" rel="noopener" class="btn btn-sm btn-cizgili"><i class="bi ${link.ikon}"></i> ${link.yazi}</a>`
+  ).join("");
+  alt.classList.toggle("d-none", proje.linkler.length === 0); // link yoksa alt kısmı gizle
 
   modal.show();
 }
+
+// Pencere açılınca ilk slayt video ise sessiz oynatmaya başla
+modalElemani.addEventListener("shown.bs.modal", function () {
+  const video = modalElemani.querySelector(".carousel-item.active video");
+  if (video) video.play().catch(() => {}); // tarayıcı izin vermezse sorun değil
+});
 
 // Pencere kapanınca çalan video varsa durdur
 modalElemani.addEventListener("hidden.bs.modal", function () {
   modalElemani.querySelectorAll("video").forEach(v => v.pause());
 });
 
-// Her proje kartına tıklama olayı ekle
-document.querySelectorAll(".proje-karti").forEach(function (kart) {
+// data-proje özelliği olan her karta (projeler + topluluk) tıklama olayı ekle
+document.querySelectorAll("[data-proje]").forEach(function (kart) {
   kart.addEventListener("click", function () {
     projeyiAc(kart.dataset.proje);
   });

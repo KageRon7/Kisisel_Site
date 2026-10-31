@@ -151,7 +151,7 @@ const projeler = {
     baslik: "SAIN · Seydişehir Artificial Intelligence Network",
     tur: "Topluluk · Yönetim kurulu",
     gorseller: [
-      { video: "img/sain-seminer.mp4", kapak: "img/sain-seminer-kapak.jpg", aciklama: "Seminerden kısa bir kurgu" },
+      { video: "img/sain-seminer.mp4", kapak: "img/sain-seminer-kapak.jpg", aciklama: "Seminerden kısa bir kurgu", sesli: true },
       { src: "img/sain-sunum.jpg", aciklama: "Topluluk seminerinde sunum" }
     ],
     bolumler: [
@@ -230,7 +230,7 @@ function projeyiAc(anahtar) {
       // Video: sessiz, döngüde, kontrollerle
       galeriHTML += `
         <div class="carousel-item${aktif}">
-          <video src="${gorsel.video}" poster="${gorsel.kapak}" title="${gorsel.aciklama}" controls muted loop playsinline preload="none"></video>
+          <video src="${gorsel.video}" poster="${gorsel.kapak}" title="${gorsel.aciklama}" controls loop playsinline preload="none"${gorsel.sesli ? "" : " muted"}></video>
         </div>`;
     } else {
       galeriHTML += `
@@ -275,7 +275,13 @@ function projeyiAc(anahtar) {
 // Pencere açılınca ilk slayt video ise sessiz oynatmaya başla
 modalElemani.addEventListener("shown.bs.modal", function () {
   const video = modalElemani.querySelector(".carousel-item.active video");
-  if (video) video.play().catch(() => {}); // tarayıcı izin vermezse sorun değil
+  if (!video) return;
+  video.play().catch(function () {
+    // Tarayıcı sesli otomatik oynatmaya izin vermezse sessiz başlat;
+    // kullanıcı videodaki hoparlör simgesinden sesi açabilir.
+    video.muted = true;
+    video.play().catch(() => {});
+  });
 });
 
 // Pencere kapanınca çalan video varsa durdur

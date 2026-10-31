@@ -1,15 +1,270 @@
+/* ===== RENK DEĞİŞKENLERİ =====
+   Renkleri tek yerde tanımlıyoruz; koyu temada sadece bunları değiştirmek yetiyor. */
+:root {
+  --ana-renk: #4f46e5;        /* indigo */
+  --ana-renk-acik: #eef2ff;
+  --yesil: #16a34a;
+  --kart-zemin: #ffffff;
+  --acik-bolum: #f6f7fb;
+  --kenarlik: #e5e7eb;
+}
+
+[data-bs-theme="dark"] {
+  --ana-renk: #818cf8;
+  --ana-renk-acik: #1e1b4b;
+  --yesil: #4ade80;
+  --kart-zemin: #1a1d24;
+  --acik-bolum: #13151a;
+  --kenarlik: #2b2f38;
+}
+
+/* Bootstrap'in mavi ana rengini kendi rengimizle değiştiriyoruz */
+.btn-primary {
+  --bs-btn-bg: var(--ana-renk);
+  --bs-btn-border-color: var(--ana-renk);
+  --bs-btn-hover-bg: #4338ca;
+  --bs-btn-hover-border-color: #4338ca;
+}
+.btn-outline-primary {
+  --bs-btn-color: var(--ana-renk);
+  --bs-btn-border-color: var(--ana-renk);
+  --bs-btn-hover-bg: var(--ana-renk);
+  --bs-btn-hover-border-color: var(--ana-renk);
+  --bs-btn-active-bg: var(--ana-renk);
+  --bs-btn-active-border-color: var(--ana-renk);
+}
+.text-bg-primary { background-color: var(--ana-renk) !important; }
+
+/* ===== GENEL ===== */
+html { scroll-behavior: smooth; }
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
 }
 
-.aciklama {
-  max-width: 600px;
+/* Sabit menü başlıkların üstünü kapatmasın diye */
+section, header { scroll-margin-top: 70px; }
+
+.vurgu { color: var(--ana-renk); }
+
+.bolum-acik { background-color: var(--acik-bolum); }
+
+/* Bölüm başlıklarının altındaki küçük çizgi */
+.baslik {
+  font-weight: 700;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: .5rem;
+}
+.baslik::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 48px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--ana-renk);
 }
 
-h2 {
-  color: #0d6efd;
+/* ===== MENÜ ===== */
+.navbar {
+  background-color: rgba(255, 255, 255, .9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--kenarlik);
+}
+[data-bs-theme="dark"] .navbar { background-color: rgba(15, 17, 21, .9); }
+
+.navbar .nav-link.active { color: var(--ana-renk) !important; font-weight: 600; }
+
+/* ===== GİRİŞ ===== */
+.giris {
+  min-height: 100vh;
+  padding-top: 90px;
+  padding-bottom: 40px;
+  background:
+    radial-gradient(circle at 85% 20%, var(--ana-renk-acik), transparent 45%);
 }
 
-td {
-  word-break: break-word;
+.staj-rozeti {
+  background-color: rgba(22, 163, 74, .12);
+  color: var(--yesil);
+  font-weight: 600;
+  padding: .5rem .8rem;
+  border-radius: 999px;
+}
+/* Yeşil noktanın yanıp sönmesi */
+.staj-rozeti .bi-circle-fill {
+  font-size: .55rem;
+  vertical-align: middle;
+  animation: nabiz 1.6s infinite;
+}
+@keyframes nabiz {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .25; }
+}
+
+/* Yazı makinesi efektindeki yanıp sönen imleç */
+.imlec {
+  color: var(--ana-renk);
+  animation: nabiz 1s infinite;
+}
+
+.bilgi-karti {
+  background: var(--kart-zemin);
+  border: 1px solid var(--kenarlik);
+  border-radius: 1rem;
+}
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--ana-renk);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.bilgi-listesi li { padding: .35rem 0; }
+.bilgi-listesi i { color: var(--ana-renk); margin-right: .5rem; }
+
+/* ===== HAKKIMDA ===== */
+.staj-kutusu {
+  border: 2px dashed var(--ana-renk);
+  border-radius: 1rem;
+  background: var(--ana-renk-acik);
+}
+
+/* ===== EĞİTİM (zaman çizelgesi) ===== */
+.zaman-cizelgesi {
+  border-left: 3px solid var(--ana-renk);
+  padding-left: 1.5rem;
+}
+.zaman-ogesi {
+  position: relative;
+  margin-bottom: 2rem;
+}
+.zaman-ogesi:last-child { margin-bottom: 0; }
+/* Çizgi üzerindeki yuvarlak nokta */
+.zaman-ogesi::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.5rem - 9px);
+  top: .3rem;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--kart-zemin);
+  border: 3px solid var(--ana-renk);
+}
+.tarih {
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--ana-renk);
+}
+
+/* ===== YETENEKLER ===== */
+.yetenek-karti {
+  background: var(--kart-zemin);
+  border: 1px solid var(--kenarlik);
+  border-radius: .75rem;
+  padding: .9rem 1rem;
+  height: 100%;
+  font-weight: 500;
+  transition: transform .2s, border-color .2s;
+}
+.yetenek-karti i { color: var(--ana-renk); margin-right: .4rem; }
+.yetenek-karti:hover { transform: translateY(-3px); border-color: var(--ana-renk); }
+
+/* JavaScript filtre için: gizlenen kartlar */
+.yetenek.gizli { display: none; }
+
+/* ===== PROJELER ===== */
+.proje-karti {
+  background: var(--kart-zemin);
+  border: 1px solid var(--kenarlik);
+  border-radius: 1rem;
+  transition: transform .2s, box-shadow .2s;
+}
+.proje-karti:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 .75rem 1.5rem rgba(0, 0, 0, .08);
+}
+.proje-ikon {
+  width: 48px;
+  height: 48px;
+  border-radius: .75rem;
+  background: var(--ana-renk-acik);
+  color: var(--ana-renk);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+.etiketler span {
+  display: inline-block;
+  font-size: .78rem;
+  padding: .2rem .6rem;
+  margin: 0 .3rem .3rem 0;
+  border-radius: 999px;
+  background: var(--acik-bolum);
+  border: 1px solid var(--kenarlik);
+}
+
+/* ===== DENEYİM ===== */
+.deneyim-karti {
+  background: var(--kart-zemin);
+  border: 1px solid var(--kenarlik);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+.deneyim-karti i {
+  font-size: 1.8rem;
+  color: var(--ana-renk);
+  display: block;
+  margin-bottom: .75rem;
+}
+
+/* ===== İLETİŞİM ===== */
+.iletisim-listesi li { padding: .4rem 0; }
+.iletisim-listesi i { color: var(--ana-renk); margin-right: .5rem; }
+.iletisim-listesi a { text-decoration: none; }
+
+/* ===== ALT BİLGİ ===== */
+footer {
+  border-top: 1px solid var(--kenarlik);
+  font-size: .9rem;
+}
+
+/* ===== YUKARI ÇIK BUTONU ===== */
+.yukari {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: none;          /* JavaScript gösterecek */
+  z-index: 1000;
+}
+.yukari.goster { display: block; }
+
+/* ===== KAYDIRINCA BELİREN BÖLÜMLER ===== */
+.belir {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s, transform .6s;
+}
+.belir.gorundu {
+  opacity: 1;
+  transform: none;
+}
+
+/* ===== TELEFON ===== */
+@media (max-width: 576px) {
+  .giris { min-height: auto; padding-top: 100px; }
+  .display-4 { font-size: 2.2rem; }
 }

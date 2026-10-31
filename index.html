@@ -1,65 +1,370 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-bs-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ferhat Yürük — Bilgisayar Mühendisliği öğrencisi. Yapay zeka, robotik ve oyun geliştirme.">
   <title>Ferhat Yürük</title>
 
+  <!-- Bootstrap CSS ve ikonlar -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Kendi stil dosyamız (Bootstrap'ten SONRA gelmeli ki onu ezebilsin) -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#menu" data-bs-offset="80" tabindex="0">
 
-  <nav class="navbar navbar-dark bg-dark">
+  <!-- ===== MENÜ (NAVBAR) ===== -->
+  <nav id="menu" class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Ferhat Yürük</a>
+      <a class="navbar-brand fw-bold" href="#ana">Ferhat<span class="vurgu">.</span></a>
+
+      <!-- Telefonda görünen hamburger butonu -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuIcerik"
+              aria-controls="menuIcerik" aria-expanded="false" aria-label="Menüyü aç">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menuIcerik">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#hakkimda">Hakkımda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#egitim">Eğitim</a></li>
+          <li class="nav-item"><a class="nav-link" href="#yetenekler">Yetenekler</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projeler">Projeler</a></li>
+          <li class="nav-item"><a class="nav-link" href="#deneyim">Deneyim</a></li>
+          <li class="nav-item"><a class="nav-link" href="#iletisim">İletişim</a></li>
+          <li class="nav-item ms-lg-2">
+            <button id="temaButonu" class="btn btn-sm btn-outline-secondary" type="button" aria-label="Temayı değiştir">
+              <i class="bi bi-moon-stars"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 
-  <header class="text-center py-5">
+  <!-- ===== GİRİŞ (HERO) ===== -->
+  <header id="ana" class="giris d-flex align-items-center">
     <div class="container">
-      <h1>Ferhat Yürük</h1>
-      <p class="lead">Bilgisayar Mühendisi</p>
-      <p class="aciklama mx-auto">
-        Necmettin Erbakan Üniversitesi'nde Bilgisayar Mühendisliği okuyorum.
-        Yapay zeka, robotik ve oyun geliştirme alanlarında kendimi geliştiriyorum.
-      </p>
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <span class="badge staj-rozeti mb-3">
+            <i class="bi bi-circle-fill me-1"></i> Erasmus+ staj yeri arıyorum
+          </span>
+          <h1 class="display-4 fw-bold mb-3">Merhaba, ben <span class="vurgu">Ferhat Yürük</span></h1>
+          <p class="fs-4 mb-2">
+            <span id="yaziMakinesi"></span><span class="imlec">|</span>
+          </p>
+          <p class="lead text-body-secondary mb-4">
+            Necmettin Erbakan Üniversitesi'nde Bilgisayar Mühendisliği öğrencisiyim.
+            Yapay zeka, robotik ve oyun geliştirme alanlarında projeler üretiyorum.
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <a href="#iletisim" class="btn btn-primary btn-lg">İletişime geç</a>
+            <a href="#projeler" class="btn btn-outline-primary btn-lg">Projelerim</a>
+            <a href="https://github.com/KageRon7" target="_blank" rel="noopener" class="btn btn-outline-secondary btn-lg">
+              <i class="bi bi-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <!-- Kısa bilgi kartı -->
+          <div class="card bilgi-karti shadow-sm">
+            <div class="card-body p-4">
+              <div class="d-flex align-items-center mb-3">
+                <div class="avatar me-3">FY</div>
+                <div>
+                  <h5 class="mb-0">Ferhat Yürük</h5>
+                  <small class="text-body-secondary">Bilgisayar Mühendisliği · 2028</small>
+                </div>
+              </div>
+              <ul class="list-unstyled mb-0 bilgi-listesi">
+                <li><i class="bi bi-geo-alt"></i> Alanya, Antalya</li>
+                <li><i class="bi bi-mortarboard"></i> Necmettin Erbakan Üniversitesi</li>
+                <li><i class="bi bi-airplane"></i> Erasmus: IPG Guarda, Portekiz</li>
+                <li><i class="bi bi-translate"></i> Türkçe · İngilizce (akıcı)</li>
+                <li><i class="bi bi-globe-europe-africa"></i> ~11 ülke gezdim</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
-  <section class="py-5 bg-light">
+  <!-- ===== HAKKIMDA ===== -->
+  <section id="hakkimda" class="py-5">
     <div class="container">
-      <h2 class="mb-3">DNS Kayıtları</h2>
-      <p>Alan adı: <strong id="alanAdi"></strong></p>
-
-      <table class="table table-bordered bg-white">
-        <thead class="table-dark">
-          <tr>
-            <th>Kayıt</th>
-            <th>Ne işe yarar?</th>
-            <th>Değer</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>A</strong></td>
-            <td>Alan adını sitenin sunucusunun IP adresine bağlar.</td>
-            <td id="kayit-A">-</td>
-          </tr>
-          <tr>
-            <td><strong>NS</strong></td>
-            <td>Alan adının DNS kayıtlarını hangi sunucuların yönettiğini gösterir (üst alan adından okunur).</td>
-            <td id="kayit-NS">-</td>
-          </tr>
-        </tbody>
-      </table>
+      <h2 class="baslik">Hakkımda</h2>
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <p>
+            Bir konuya ilgi duyduğumda onu en ince ayrıntısına kadar öğrenmek isterim.
+            Bu merak beni yazılımın yanında donanıma da götürdü: kod yazmayı, onu
+            gerçek dünyada hareket eden bir şeye bağlamayı seviyorum.
+          </p>
+          <p>
+            2026 bahar döneminde Erasmus+ ile Portekiz'deki Instituto Politécnico da Guarda'da
+            okudum. Farklı bir ülkede ders almak, uluslararası ekiplerle çalışmak ve İngilizceyi
+            her gün kullanmak bana çok şey kattı.
+          </p>
+          <p class="mb-0">
+            Şu anda 7 kişilik bir öğrenci ekibine liderlik ederek masaüstü bir "evcil" robot
+            geliştiriyorum ve üniversitemin yapay zeka topluluğunun yönetim kurulundayım.
+          </p>
+        </div>
+        <div class="col-lg-5">
+          <!-- Staj arayışı kutusu -->
+          <div class="staj-kutusu p-4 h-100">
+            <h5><i class="bi bi-briefcase me-2"></i>Staj arıyorum</h5>
+            <p class="mb-2">
+              Erasmus+ staj hibesi kazandım ve Avrupa'da staj yapacağım bir şirket arıyorum.
+            </p>
+            <p class="mb-2"><strong>İlgi alanlarım:</strong></p>
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <span class="badge rounded-pill text-bg-primary">Yapay Zeka</span>
+              <span class="badge rounded-pill text-bg-primary">Robotik</span>
+              <span class="badge rounded-pill text-bg-primary">Oyun Geliştirme</span>
+            </div>
+            <a href="#iletisim" class="btn btn-sm btn-primary">Benimle iletişime geçin</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer class="text-center py-3 bg-dark text-white">
-    © <span id="yil"></span> Ferhat Yürük
+  <!-- ===== EĞİTİM ===== -->
+  <section id="egitim" class="py-5 bolum-acik">
+    <div class="container">
+      <h2 class="baslik">Eğitim</h2>
+      <div class="zaman-cizelgesi">
+        <div class="zaman-ogesi">
+          <span class="tarih">Mezuniyet: 2028 (beklenen)</span>
+          <h5>Necmettin Erbakan Üniversitesi</h5>
+          <p class="text-body-secondary mb-1">Bilgisayar Mühendisliği, Lisans</p>
+          <p class="mb-0">Güncel dersler: işletim sistemleri, mikroişlemciler, web programlama.</p>
+        </div>
+        <div class="zaman-ogesi">
+          <span class="tarih">Mart – Temmuz 2026</span>
+          <h5>Instituto Politécnico da Guarda — Portekiz</h5>
+          <p class="text-body-secondary mb-1">Erasmus+ öğrenci değişimi</p>
+          <p class="mb-0">Robotik dersi ve MedGuard projesi bu dönemde geliştirildi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== YETENEKLER ===== -->
+  <section id="yetenekler" class="py-5">
+    <div class="container">
+      <h2 class="baslik">Yetenekler</h2>
+
+      <!-- Filtre butonları: JavaScript ile çalışır -->
+      <div class="btn-group flex-wrap mb-4" role="group" aria-label="Yetenek filtresi">
+        <button type="button" class="btn btn-outline-primary active" data-filtre="hepsi">Hepsi</button>
+        <button type="button" class="btn btn-outline-primary" data-filtre="dil">Diller</button>
+        <button type="button" class="btn btn-outline-primary" data-filtre="web">Web</button>
+        <button type="button" class="btn btn-outline-primary" data-filtre="donanim">Donanım</button>
+        <button type="button" class="btn btn-outline-primary" data-filtre="temel">Temel Konular</button>
+      </div>
+
+      <div class="row g-3" id="yetenekListesi">
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="dil"><div class="yetenek-karti"><i class="bi bi-filetype-py"></i> Python</div></div>
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="dil"><div class="yetenek-karti"><i class="bi bi-hash"></i> C# / .NET</div></div>
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="dil"><div class="yetenek-karti"><i class="bi bi-filetype-js"></i> JavaScript</div></div>
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="dil"><div class="yetenek-karti"><i class="bi bi-cpu"></i> C / Arduino</div></div>
+
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="web"><div class="yetenek-karti"><i class="bi bi-filetype-html"></i> HTML &amp; CSS</div></div>
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="web"><div class="yetenek-karti"><i class="bi bi-bootstrap"></i> Bootstrap</div></div>
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="web"><div class="yetenek-karti"><i class="bi bi-filetype-jsx"></i> React + Vite</div></div>
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="web"><div class="yetenek-karti"><i class="bi bi-hdd-network"></i> REST API</div></div>
+
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="donanim"><div class="yetenek-karti"><i class="bi bi-motherboard"></i> ESP32</div></div>
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="donanim"><div class="yetenek-karti"><i class="bi bi-gear"></i> Servo motorlar</div></div>
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="donanim"><div class="yetenek-karti"><i class="bi bi-diagram-3"></i> Tinkercad</div></div>
+
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="temel"><div class="yetenek-karti"><i class="bi bi-boxes"></i> Nesne Yönelimli Programlama</div></div>
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="temel"><div class="yetenek-karti"><i class="bi bi-diagram-2"></i> Veri Yapıları &amp; Algoritmalar</div></div>
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="temel"><div class="yetenek-karti"><i class="bi bi-terminal"></i> İşletim Sistemleri</div></div>
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="temel"><div class="yetenek-karti"><i class="bi bi-git"></i> Git &amp; GitHub</div></div>
+        <div class="col-6 col-md-4 col-lg-3 yetenek" data-kategori="temel"><div class="yetenek-karti"><i class="bi bi-robot"></i> Yapay zeka araçları</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJELER ===== -->
+  <section id="projeler" class="py-5 bolum-acik">
+    <div class="container">
+      <h2 class="baslik">Projeler</h2>
+      <div class="row g-4">
+
+        <div class="col-md-6">
+          <div class="card proje-karti h-100">
+            <div class="card-body">
+              <div class="proje-ikon"><i class="bi bi-robot"></i></div>
+              <h5 class="card-title">Masaüstü Pet Robot</h5>
+              <p class="card-text">
+                Bilgisayar başında çalışan insanlara eşlik eden, kedi görünümlü masaüstü robot.
+                Robotta zeka yok: ESP32 servoları sürüyor, beyin bilgisayarda Python ile çalışıyor
+                ve kamerayla kullanıcının yüz ifadesine tepki veriyor. 7 kişilik ekibin lideriyim.
+              </p>
+              <div class="etiketler">
+                <span>Python</span><span>ESP32</span><span>Görüntü işleme</span><span>Ekip liderliği</span>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent border-0 pt-0">
+              <a href="https://github.com/KageRon7/pet-robot" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary">
+                <i class="bi bi-github"></i> Kodu incele
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card proje-karti h-100">
+            <div class="card-body">
+              <div class="proje-ikon"><i class="bi bi-capsule"></i></div>
+              <h5 class="card-title">MedGuard</h5>
+              <p class="card-text">
+                Erasmus döneminde tek başıma geliştirdiğim tam yığın (full-stack) web uygulaması.
+                React arayüzü, C# .NET 8 ile yazılmış bir REST API'ye bağlanıyor.
+              </p>
+              <div class="etiketler">
+                <span>React</span><span>Tailwind</span><span>.NET 8</span><span>EF Core</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card proje-karti h-100">
+            <div class="card-body">
+              <div class="proje-ikon"><i class="bi bi-shop"></i></div>
+              <h5 class="card-title">Yegane Natural</h5>
+              <p class="card-text">
+                Gerçek bir müşteri için hazırladığım web vitrini. İhtiyaçları dinleyip
+                ürünleri sergileyen bir site olarak teslim ettim.
+              </p>
+              <div class="etiketler">
+                <span>Web</span><span>Müşteri projesi</span>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent border-0 pt-0">
+              <a href="https://github.com/KageRon7/yegane-natural" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary">
+                <i class="bi bi-github"></i> Kodu incele
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card proje-karti h-100">
+            <div class="card-body">
+              <div class="proje-ikon"><i class="bi bi-cpu"></i></div>
+              <h5 class="card-title">Robotik Projeleri</h5>
+              <p class="card-text">
+                Guarda'daki robotik dersinde Arduino tabanlı devreler tasarlayıp
+                Tinkercad üzerinde simüle ettim.
+              </p>
+              <div class="etiketler">
+                <span>Arduino</span><span>Tinkercad</span><span>Elektronik</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DENEYİM ===== -->
+  <section id="deneyim" class="py-5">
+    <div class="container">
+      <h2 class="baslik">Deneyim &amp; Topluluk</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="deneyim-karti h-100">
+            <i class="bi bi-people"></i>
+            <h5>Yapay Zeka Topluluğu</h5>
+            <p class="mb-0">Üniversitemin yapay zeka öğrenci topluluğunda yönetim kurulu üyesiyim.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="deneyim-karti h-100">
+            <i class="bi bi-mic"></i>
+            <h5>Seminer &amp; Konuşma</h5>
+            <p class="mb-0">Toplulukta seminer düzenledim ve Erasmus+ deneyimim üzerine konuşma yaptım.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="deneyim-karti h-100">
+            <i class="bi bi-diagram-3"></i>
+            <h5>Ekip Liderliği</h5>
+            <p class="mb-0">Pet robot projesinde 6 kişilik ekibi alt takımlara böldüm, görevleri ve arayüzleri koordine ediyorum.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== İLETİŞİM ===== -->
+  <section id="iletisim" class="py-5 bolum-acik">
+    <div class="container">
+      <h2 class="baslik">İletişim</h2>
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <p>Staj, proje ya da iş birliği için bana yazabilirsiniz.</p>
+          <ul class="list-unstyled iletisim-listesi">
+            <li><i class="bi bi-envelope"></i> <a href="mailto:yurukferhat595@gmail.com">yurukferhat595@gmail.com</a></li>
+            <li><i class="bi bi-github"></i> <a href="https://github.com/KageRon7" target="_blank" rel="noopener">github.com/KageRon7</a></li>
+            <li><i class="bi bi-geo-alt"></i> Alanya, Türkiye</li>
+          </ul>
+        </div>
+
+        <div class="col-lg-7">
+          <!-- novalidate: tarayıcının kendi uyarılarını kapatır, kontrolü JavaScript yapar -->
+          <form id="iletisimFormu" novalidate>
+            <div class="mb-3">
+              <label for="ad" class="form-label">Adınız</label>
+              <input type="text" class="form-control" id="ad" placeholder="Adınız Soyadınız">
+              <div class="invalid-feedback">Lütfen en az 3 harfli bir ad girin.</div>
+            </div>
+            <div class="mb-3">
+              <label for="eposta" class="form-label">E-posta</label>
+              <input type="email" class="form-control" id="eposta" placeholder="ornek@mail.com">
+              <div class="invalid-feedback">Lütfen geçerli bir e-posta adresi girin.</div>
+            </div>
+            <div class="mb-3">
+              <label for="mesaj" class="form-label">Mesajınız</label>
+              <textarea class="form-control" id="mesaj" rows="4" placeholder="Mesajınızı yazın..."></textarea>
+              <div class="invalid-feedback">Mesaj en az 10 karakter olmalı.</div>
+              <div class="form-text"><span id="karakterSayaci">0</span> karakter</div>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              <i class="bi bi-send"></i> Gönder
+            </button>
+            <div id="formSonucu" class="alert alert-success mt-3 d-none" role="alert"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ALT BİLGİ ===== -->
+  <footer class="text-center py-4">
+    <div class="container">
+      © <span id="yil"></span> Ferhat Yürük · HTML, CSS, Bootstrap ve JavaScript ile yapıldı
+    </div>
   </footer>
 
+  <!-- Yukarı çık butonu -->
+  <button id="yukariButonu" class="btn btn-primary yukari" type="button" aria-label="Yukarı çık">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- Bootstrap JS (menü açılıp kapanması ve scrollspy için gerekli) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+  <style>
+    body { font-family: -apple-system, system-ui, sans-serif; background: #fbf8f3; color: #3d3a36; padding: 24px; }
+    .kutu { background: #fff; border-radius: 16px; padding: 20px; margin-top: 12px; word-break: break-word; }
+    .iyi { color: #2e7d4f; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Test sayfası</h1>
+  <p class="iyi">✔ Sayfa yüklendi (HTML + CSS çalışıyor)</p>
+  <p id="js">✘ JavaScript çalışmadı</p>
+  <div class="kutu">
+    <strong>Cihaz bilgisi:</strong><br>
+    <span id="ua">-</span>
+  </div>
+  <p><a href="/">Ana sayfaya git</a></p>
+
+  <script>
+    document.getElementById("js").textContent = "✔ JavaScript çalışıyor";
+    document.getElementById("js").className = "iyi";
+    document.getElementById("ua").textContent = navigator.userAgent;
+  </script>
+</body>
+</html>

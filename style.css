@@ -102,7 +102,9 @@ a { color: var(--ana-koyu); }
 
 /* ===== MENÜ ===== */
 .navbar {
+  background-color: rgba(251, 248, 243, .92);           /* eski Safari için yedek */
   background-color: color-mix(in srgb, var(--zemin) 88%, transparent);
+  -webkit-backdrop-filter: blur(10px);                   /* Safari öneki */
   backdrop-filter: blur(10px);
 }
 .navbar .nav-link { color: var(--yazi-soluk); font-weight: 600; }
